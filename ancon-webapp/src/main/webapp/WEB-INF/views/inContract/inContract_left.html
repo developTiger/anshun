@@ -1,0 +1,66 @@
+<style>
+    .we {
+        display: none
+    }
+
+    .er {
+        display: inherit
+    }
+</style>
+$ui.loadCss("saleContract_index.css")
+$ui.loadCss("inContract/inContract_left.css")
+$ui.loadCss("zTree/css/zTreeStyle/zTreeStyle.css")
+<div class="col-xs-2 inContract_left js_height my_js-height"
+     style="width: 13.666667%;background-color: #1E3241; height: 1000px">
+    <input type="hidden" name="inContractId">
+
+    <!--点击事件时，公司id和type就已经传过来了-->
+    <!--当前公司id   树形结构需要-->
+    <input class="hidden" type="text" name="current_company_id">
+
+    <div style="height: 50px;font-size: 15px;line-height: 50px;color: #577185;text-indent: 20px;">
+        <span>主菜单</span>
+    </div>
+    <ul style="padding: 0px">
+        #if($secondPartyDtos)
+        #foreach($dto in $secondPartyDtos)
+        <li class="sc_index_left_li Js_single_li" style="cursor: pointer;">
+            <div data-value="$dto.id" class="Js_li_first "
+                 style="color: rgb(87, 113, 133);height: 35px;line-height: 35px;">
+                <div class="long_over" title="$dto.name">
+                 <span style="margin-left: 20px;" class="dto_name">
+                                <em class="iconfont" style="padding-right: 3px">&#xe604;</em>
+                            $dto.name
+                            </span>
+                </div>
+
+                #if($add_contract)
+                <button type="button"
+                        class="btn btn-primary add_sale_contract  i_modal1 hidden add_new_inContract"
+                        style="height: 25px;width: 25px;position: relative;top: -13px;"
+                        data-url="_editOrUpdate_contract?companyId=$dto.id&companyName=$dto.name" data-title="添加进项合同">
+                    <em class="iconfont" style="font-size: 12px;position: relative;top: -5px;left: -6px;">&#xe6ac;</em>
+                </button>
+                #end
+
+                <em class="iconfont pull-right  Js_first_icon" style="margin-right: 5%">&#xe605;</em>
+                <em class="iconfont pull-right Js_second_icon hidden" style="margin-right: 5%">&#xe608;</em>
+            </div>
+
+            <div class="hidden Js_zTree ">
+
+                <div id="ztree_$dto.id" class="ztree   "></div>
+
+            </div>
+
+
+        </li>
+
+        #end
+        #end
+    </ul>
+
+
+</div>
+
+

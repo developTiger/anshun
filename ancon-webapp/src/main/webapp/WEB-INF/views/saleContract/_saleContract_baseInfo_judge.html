@@ -1,0 +1,34 @@
+<style>
+    .baseInfo_judge_left_1{margin-left: 80px;margin-right: 0px}
+    .baseInfo_judge_right_1{text-align: left;width: 420px}
+</style>
+<form class="sc_i_judge" id="addFixedTrialForm">
+    <div class="sc_i_judge_content">
+        <div class="sc_i_judge_left baseInfo_judge_left_1">
+            <span class="">定审金额(万元)：</span>
+        </div>
+
+        <div class="sc_i_judge_right baseInfo_judge_right_1">
+            <input type="text" class="sc_i_judge_input_style"  name="judgeMoney" value="$!bean.judgeMoney">
+        </div>
+        <!--<div class="sc_i_judge_right">-->
+            <!--<input type="text" class="" style="width:  200px;" name="judgeMoney" #if($bean.judgeMoney) disabled #end  value="$!bean.judgeMoney" >-->
+        <!--</div>-->
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_judge_left baseInfo_judge_left_1">
+            <span class="">定审日期：</span>
+        </div>
+
+        <div class="sc_i_judge_right baseInfo_judge_right_1">
+            <input type="text" class="Wdate sc_i_judge_input_style"  name="judTime" required="required"
+                   #if($bean.judgeTime) value="$helper.formatDateToString($bean.judgeTime,'yyyy-MM-dd')" #end>
+        </div>
+    </div>
+    <div class="hr_1"></div>
+    <div class="sc_i_judge_top">
+        <button type="submit" class="btn blue-btn" id="addFixedTrial" data-url="ajax_add_fixedTrial_saleContract">保存</button>
+        <button type="button" class="btn gray-btn cancelModal" >取消</button>
+    </div>
+</form>
+

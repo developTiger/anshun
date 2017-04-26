@@ -1,0 +1,65 @@
+#parse("/saleContract/saleContract_left.html")
+$ui.loadCss("/inContract/inContract_list.css")
+$ui.loadCss("saleContract.css")
+<div class="col-xs-10 inContract_count" style="width: 86.333333%;margin-top: 12px">
+    <div class="inContract_list_content col-xs-12 " style="padding: 0px;margin: 0px">
+        <form class="searchFrom invoiceList">
+            <div class="invoiceTime" style="padding-left: 20px">
+                <label for=""><span class="in_font">付款日期：</span></label>
+                <input type="text" class="text-with Wdate" name="beginTime1" placeholder="开始时间" value="$!beginTime"/>
+                <label for=""><span class="midline">--</span></label>
+                <input type="text" class="text-with Wdate" name="endTime1" placeholder="结束时间" value="$!endTime"/>
+            </div>
+            <div class="invoiceTime">
+
+                <label for=""><span class="in_font">发票类型：</span></label>
+                <select name="invoiceType" id="invoiceType">
+                    <option value="">全部</option>
+                    <option value="Common">增税普票</option>
+                    <option value="Special">增税专票</option>
+
+                </select>
+            </div>
+            <div class="invoiceTimeContract">
+                <label for=""><span class="in_font">所属合同：</span></label>
+                <input type="text" class="" name="contract" placeholder="输入关键字即可"/>
+            </div>
+            <div class="invoiceSecond">
+                <div class="invoicePartyB">
+                    <label for=""><span class="in_font">乙方名称：</span></label>
+                    <select name="partyBId" id="partyB">
+                        <option value="">全部</option>
+
+                        #if($secondList)
+                        #foreach($second in $secondList)
+                        <option value="$second.id">$second.name</option>
+                        #end
+                        #end
+                    </select>
+                </div>
+                <button class="btn green-btn  selecte_invoiceList" type="button" data-url="ajax_query_invoice_page"
+                        style="">筛选
+                </button>
+            </div>
+        </form>
+        <div class="col-xs-12" style="padding: 15px;">
+            <div class="row">
+                <div class="col-xs-12" style="padding: 0px">
+                    <button class=" blue-btn  excel" id="downloadInvoice" style="background-color:#70CA10;border: none; "><em
+                            class="iconfont" style="font-size: 23px;margin-right: 5px">&#xe62f;</em>导出列表
+                    </button>
+
+                </div>
+
+                <div class="invoiceList1 col-xs-12" style="padding: 0px"></div>
+                <div class="col-xs-12 dataTables_paginate  " style="text-align: right;">
+                    <ul class="pagination " style="margin-top:4px!important;"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['app/inContract/inContract_count_list']);
+    require(['app/saleContract/dataReports_public']);
+</script>

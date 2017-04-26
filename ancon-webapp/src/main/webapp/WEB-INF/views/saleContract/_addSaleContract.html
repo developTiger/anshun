@@ -1,0 +1,263 @@
+<style>
+    .css_error_style +.error{margin-right:-10px }
+</style>
+<form class="sc_i_judge addOrUpdateSaleContractForm" style="width: 100%;min-width: 1120px">
+
+    <input class="hiddenTest_style" type="text" value="$!bean.id" name="id">
+    <input class="hiddenTest_style" type="text" value="$!parentId" name="parent_id">
+    <input class="hiddenTest_style" type="text" value="$!companyId" name="companyId">
+    <input class="hiddenTest_style" type="text" value="$!companyName" name="companyName">
+
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同编号：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <input type="text" class="sc_i_judge_input_style" name="num" required="required"
+                        value="$!bean.num" >
+            </div>
+        </div>
+
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同名称：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <input type="text" class="sc_i_judge_input_style" name="name" required="required" value="$!bean.name" >
+            </div>
+        </div>
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div  class="sc_i_error_style" style="">
+            <div class="sc_i_judge_left" style="margin-left: 50px">
+                <span class="">甲方名称：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <!--<input type="text" class="sc_i_judge_input_style" name="jiaFangName" required="required" value="$!bean.jiaFangName">-->
+                <select class="sc_i_judge_select_style select2_single" name="jiaFangName" required="required">
+                    <option value="">请选择</option>
+                    #if($partyDtos)
+                    #foreach($dto in $partyDtos)
+                    <option value="$dto.name" #if($bean.jiaFangName == $dto.name) selected #end)>$dto.name</option>
+                    #end
+                    #end
+                </select>
+            </div>
+        </div>
+        <div class="sc_i_error_style" style="width: 600px">
+            <div class="sc_i_judge_left" style="margin-left: 50px">
+                <span class="">合同金额：(万元)</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <input type="text" class="sc_i_judge_input_style css_error_style" name="contractMoney" value="$!bean.contractMoney">
+            </div>
+        </div>
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">工程专业：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="projectMajor">
+                    <option value="市政工程" #if($!bean.projectMajor =="市政工程") selected #end>市政工程</option>
+                    <option value="建筑工程" #if($!bean.projectMajor =="建筑工程") selected #end>建筑工程</option>
+                    <option value="公路工程" #if($!bean.projectMajor =="公路工程") selected #end>公路工程</option>
+                    <option value="钢结构" #if($!bean.projectMajor =="钢结构") selected #end>钢结构</option>
+                    <option value="燃气工程" #if($!bean.projectMajor =="燃气工程") selected #end>燃气工程</option>
+                    <option value="机电安装" #if($!bean.projectMajor =="机电安装") selected #end>机电安装</option>
+                    <option value="其他" #if($!bean.projectMajor =="其他") selected #end>其他</option>
+                </select>
+            </div>
+        </div>
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同签订日期：</span>
+            </div>
+
+            <div class="sc_i_judge_right ">
+                <input type="text" class="Wdate ete sc_i_judge_input_style " name="conBeginTime" required="required" #if($bean.contractBeginTime) value="$helper.formatDateToString($bean.contractBeginTime,'yyyy-MM-dd')" #end   >
+            </div>
+        </div>
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同到期日期：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <input type="text" class="Wdate sc_i_judge_input_style bete" name="conEndTime" required="required" #if($bean.contractEndTime) value="$helper.formatDateToString($!bean.contractEndTime,'yyyy-MM-dd') " #end >
+            </div>
+        </div>
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同开工日期：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <input type="text" class="Wdate  sc_i_judge_input_style" name="proStartTime" required="required" #if($bean.projectStartTime) value="$helper.formatDateToString($!bean.projectStartTime,'yyyy-MM-dd') " #end>
+            </div>
+        </div>
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同状态：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="contractStatus">
+                    <option value="进行中" #if($!bean.contractStatus =="进行中") selected #end>进行中</option>
+                    <option value="已结项" #if($!bean.contractStatus =="已结项") selected #end>已结项</option>
+                </select>
+            </div>
+        </div>
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同类型：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="contractType">
+                    <option value="重点合同" #if($!bean.contractType =="重点合同") selected #end>重点合同</option>
+                    <option value="标准合同" #if($!bean.contractType =="标准合同") selected #end>标准合同</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">中标通知书：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="bidNotice">
+
+                    <option value="有已收回" #if($!bean.bidNotice =="有已收回") selected #end>有已收回</option>
+                    <option value="有未收回" #if($!bean.bidNotice =="有未收回") selected #end>有未收回</option>
+                    <option value="无" #if($!bean.bidNotice =="无") selected #end>无</option>
+                </select>
+            </div>
+        </div>
+       <div class="sc_i_error_style">
+           <div class="sc_i_judge_left">
+               <span class="">施工许可证：</span>
+           </div>
+
+           <div class="sc_i_judge_right">
+               <select class="sc_i_judge_select_style" name="constructLicense">
+                   <option value="有已收回" #if($!bean.constructLicense =="有已收回") selected #end>有已收回</option>
+                   <option value="有未收回" #if($!bean.constructLicense =="有未收回") selected #end>有未收回</option>
+                   <option value="无" #if($!bean.constructLicense =="无") selected #end>无</option>
+               </select>
+           </div>
+       </div>
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">工程结算单：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="projectSettlement">
+
+                    <option value="有已收回" #if($!bean.projectSettlement =="有已收回") selected #end>有已收回</option>
+                    <option value="有未收回" #if($!bean.projectSettlement =="有未收回") selected #end>有未收回</option>
+                    <option value="无" #if($!bean.projectSettlement =="无") selected #end>无</option>
+                </select>
+            </div>
+        </div>
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">竣工验收单：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="finishCheck">
+                    <option value="有已收回" #if($!bean.finishCheck =="有已收回") selected #end>有已收回</option>
+                    <option value="有未收回" #if($!bean.finishCheck =="有未收回") selected #end>有未收回</option>
+                    <option value="无" #if($!bean.finishCheck =="无") selected #end>无</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sc_i_judge_content">
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                <span class="">合同是否已返回：</span>
+            </div>
+
+            <div class="sc_i_judge_right">
+                <select class="sc_i_judge_select_style" name="contractIsReturn">
+                    <option value="是" #if($!bean.contractIsReturn =="是") selected #end>是</option>
+                    <option value="否" #if($!bean.contractIsReturn =="否") selected #end>否</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="sc_i_error_style">
+            <div class="sc_i_judge_left">
+                #if($bean.id)
+                <span class="">机构名称：</span>
+                #end
+            </div>
+
+            <div class="sc_i_judge_right">
+                #if($bean.id)
+                <select class="sc_i_judge_select_style select2_edit_company"   name="edit_companyId">
+                    #if($deptmentDtos)
+                    #foreach($dto in $deptmentDtos)
+                    <option value="$dto.id" #if($bean.companyId==$dto.id) selected #end>$dto.deptName</option>
+                    #end
+                    #else
+                    <d>暂无数据</d>
+                    #end
+                </select>
+                <input type="hidden" name="edit_companyName">
+                #end
+            </div>
+        </div>
+
+
+    </div>
+    <div class="sc_i_judge_content">
+        <div class="sc_i_judge_left" style="vertical-align: top;">
+            <span class="">备注：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <textarea cols="130" rows="5" name="remark" style="margin-right: 60px;" >$!bean.remark</textarea>
+        </div>
+    </div>
+
+
+
+    <div class="hr_1"></div>
+    <div class="sc_i_judge_top">
+        <button type="submit" class="btn blue-btn addOrUpdateSaleContract" data-url="ajax_addOrUpdate_saleContract">保存</button>
+        <button type="button" class="btn gray-btn cancelModal" >取消</button>
+    </div>
+</form>
+<script>
+    require(['app/saleContract/saleContract_index']);
+</script>
+
+

@@ -1,0 +1,66 @@
+
+<script>
+    $(function(){
+        var height= window.document.body.scrollHeight;
+        if(height<800){
+            height= window.document.documentElement.scrollHeight;
+        }
+
+        var js_cnUsers=document.getElementById("js_cnUsers");
+        js_cnUsers.style.height=(height-60)+"px";
+    });
+</script>
+
+<script>
+    require(["app/user/usermanager"]);
+</script>
+<div id="js_cnUsers" class="col-xs-2 cn-users" style="background:rgb(30, 50, 65);width:13.666667%;">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <ul class="users-list">
+
+                    <li class="ul-title">主菜单</li>
+                    #if($menu)
+                        #foreach($me in $menu)
+                            #if($me.sort==5)
+                                #if($me.child)
+                                    #foreach($list in $me.child)
+                                        <a  href="$list.url">
+
+                                            <li class="#if($ucheck==$!list.sort) users-list-checked #end li-hover">
+                                                #if($list.sort=="1")
+                                                    <em class="iconfont">&#xe6ab;</em>
+                                                #end
+                                                #if($list.sort=="2")
+                                                    <em class="iconfont">&#xe664;</em>
+                                                #end
+                                                #if($list.sort=="3")
+                                                    <em class="iconfont">&#xe601;</em>
+                                                #end
+                                                #if($list.sort=="4")
+                                                    <em class="iconfont">&#xe697;</em>
+                                                #end
+                                                #if($list.sort=="5")
+                                                   <em class="iconfont">&#xe7c2;</em>
+                                                #end
+                                                #if($list.sort=="6")
+                                                   <em class="iconfont">&#xe607;</em>
+                                                #end
+                                                $list.name
+                                            </li>
+                                        </a>
+                                    #end
+                                #else
+                                    <a href="sra_u_userInfo"><li class="#if($ucheck==$!list.sort) users-list-checked #end li-hover">用户管理</li></a>
+                                #end
+                            #end
+                        #end
+                    #end
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

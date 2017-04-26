@@ -1,0 +1,96 @@
+<style>
+    .error {
+        color: #ff0000;
+        font-size: 3px;
+        padding: 0px;
+        margin: 0px;
+    }
+</style>
+<form class="ancon_in_contract addOrUpdatePayForm">
+    <input type="hidden" name="id" value="$!been.id"/>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>付款金额(万元)：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <input type="text" placeholder="付款金额" name="money" value="$!been.money" required="required"/>
+        </div>
+    </div>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>付款时间：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <input class="Wdate" type="text" placeholder="付款时间" name="spayTime" value="#if($been)$!been.spayTime
+            #else$nowTime
+            #end"
+                   required="required"/>
+        </div>
+    </div>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>付款方式：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <select name="payStyle" id="payStyle" required="required">
+                <option value="BankTransfer" #if($been.style=="BankTransfer") selected #end>银行转账</option>
+                <option value="Remittance" #if($been.style=="Remittance") selected #end>银行汇票</option>
+                <option value="Cheque" #if($been.style=="Cheque") selected #end>银行支票</option>
+                <option value="Cash" #if($been.style=="Cash") selected #end>现金</option>
+                <option value="Other" #if($been.style=="Other") selected #end>其他</option>
+
+            </select>
+        </div>
+        <!--<div class="ancon_in_contract_3">-->
+        <!--<span>凭据：</span>-->
+        <!--</div>-->
+        <!--<div class="ancon_in_contract_4">-->
+        <!--<input type="text" placeholder="凭据" name="proof" value="$!been.proof"/>-->
+        <!--</div>-->
+    </div>
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1" style="vertical-align: top" >
+            <span>备注：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <textarea name="remark" rows="3" cols="25" placeholder="必要的文字说明">$!been.remark</textarea>
+        </div>
+    </div>
+
+    <input type="hidden" placeholder="进项合同标识" name="inId"
+           value="#if($been.inId) $been.inId #else $!inContract.id  #end"/>
+
+    <input type="hidden" placeholder="乙方名称" name="partyBId"
+           value="#if($been.partyBId)$!been.partyBId #else $!inContract.partyBId  #end"/>
+    <input type="hidden" placeholder="所属分公司" name="companyId"
+           value="#if($been.companyId)$!been.companyId #else $!inContract.companyId  #end"/>
+    #set($i=0)
+    #if($inContract.payMoney) #set($i=$inContract.value - $inContract.payMoney)
+    #else
+    #set($i=$inContract.value)
+    #end
+    <input type="hidden" placeholder="可填金额" name="leftPay"
+           value="#if($been.money) #set($t=$been.totalMoney + $been.money) $t #else $i #end "/>
+
+    <!--<div class="ancon_in_contract_content">-->
+        <!--<div class="ancon_in_contract_1_remark_invoice">-->
+            <!--<span>备注：</span>-->
+        <!--</div>-->
+        <!--<div class="ancon_invoice_remark">-->
+            <!--<textarea name="remark" id="" rows="4" placeholder="必要的文字说明">$!been.remark</textarea>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="hr_1"></div>
+    <div class="inContract_submit">
+        <button type="submit" class="btn blue-btn space_right addOrEdit_pay"
+                data-url="ajax_addOrUpdate_pay">保存
+        </button>
+        <button class="btn gray-btn left-space" id="cancelModal" type="button">取消</button>
+    </div>
+</form>
+<script>
+    require(['app/inContract/inContract_index'])
+</script>

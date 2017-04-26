@@ -1,0 +1,144 @@
+.blue-input{color: #FFFFFF;background: #5192C1;font-size: 14px;border:none;border-radius:0px;width: 80px;height: 32px;}
+.blue-btn{color: #ffffff;background: #5192C1;border-radius: 0px;font-size: 14px;}
+.gray-btn{color: #ffffff;background: #CBCBCB;border-radius: 0px;font-size: 14px;}
+.green-btn{ color: #ffffff;background: #70CA10;border-radius: 0px;font-size: 14px;width: 76px;height: 32px;}
+.inputwidth{width: 140px;}
+select{border-radius:0px !important;}
+body{padding: 0px!important;}
+.blue-btn.focus, .blue-btn:focus, .blue-btn:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background: #4A98D1;
+}
+
+
+.animated{animation-duration: 0.2s !important;}
+
+a:hover{cursor: pointer;}
+
+.gray-btn.focus, .gray-btn:focus, .gray-btn:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background: #CBCBCE;
+}
+.green-btn.focus, .green-btn:focus, .green-btn:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background: #70CA19;
+}
+
+.gray-table thead tr{background-color:#F2F2F2; }
+.silverygray-table thead tr:first-child{background-color: #FAFAFA;}
+table tfoot{background: #F8F8F8;}
+table tfoot th div{display: inline-block;}
+
+
+table{border:1px solid #BABAB9;width: 100%;max-width:100%;}
+table tr{border:1px solid #BABAB9;height: 45px;}
+table tr th,table tr td{border:1px solid #cfdadd;text-align: center;}
+table tr th,table tr td{padding: 10px;}
+.table-hover > tbody > tr > th:focus,.table-hover > tbody > tr > th:hover{background: #F9F9F9;}
+
+input[type="text"]{padding-left: 8px;height: 32px;border-radius: 0px;}
+.dis-none{display: none;}
+.h13{height: 13px;}
+.h40{height: 40px;}
+.h60{height: 60px;}
+.h100{height: 100px;}
+.h110{height: 110px;}
+.h200{height: 200px;}
+.h258{height: 258px;}
+.h364{height: 364px;}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 184481 */
+    src: url('//at.alicdn.com/t/font_u2ngkqddw572pgb9.eot');
+    src: url('//at.alicdn.com/t/font_u2ngkqddw572pgb9.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_u2ngkqddw572pgb9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_u2ngkqddw572pgb9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_u2ngkqddw572pgb9.svg#iconfont') format('svg');
+}
+
+.iconfont{font-family:"iconfont"!important;font-style:normal;font-size: 14px;}
+
+.container{
+    width: 100% !important;
+    min-width: 1200px !important;
+}
+
+.margin-top6{margin-top: 6px;}
+.red{color: #FF391F;}
+.deepRed{color: #E84F24}
+.underline2{border:2px solid #69B1E4; }
+
+/**
+ *  Top
+ */
+.nav-top{height: 60px;line-height: 60px;background: #FDFDFD;border-bottom: 1px solid #D4D5D7;}
+.nav-top-title{font-size: 36px;color: #A0A6B4;}
+.nav-top-border-right{border-right: 1px solid #EAEBED;height: 30px;margin-top: 15px;}
+.border-shu{border: 1px solid #ffffff;height: 60px;}
+.icon-house{font-size: 19px;}
+.icon-sj{font-size: 16px;}
+.nav-top-items{color: #5A5A5A;}
+.house-flag{color: #24AFDA;width: 28px;display: inline-block;text-align: right;float: left;}
+.nav-top-items > div > .top-select > span{width: 86px;display: inline-block;text-align: center;font-weight: bolder;float: left;}
+.nav-top-user{color: #5A5A5A;}
+.nav-top-user span{width: 50px;display: inline-block;}
+.top-select{color: #5A5A5A;cursor: pointer;}
+.top-select span:hover{background: #f6f8f8;border: none;height: 59px;border-radius: 0px;color: black !important;}
+.top-select-hover{background: #EDF1F3;border: none;height: 59px;border-radius: 0px;color: black !important;}
+.dropdown-menu li{height: 30px; line-height: 8px;color: black;}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+.dropdown-menu{left: -117px;margin-top: -2px;border-radius: 0px;}
+.dropdown-menu:after {
+    border-bottom: 6px solid #ffffff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    display: inline-block;
+    right: 6%;
+    position: absolute;
+    top: -6px;
+}
+
+/**
+ *top样式
+ */
+.nav-top-items > div > a:hover{color: #ffffff;text-decoration:none;}
+.cn-top-logout{display: inline-block;position: relative;margin-left: 10px;}
+.cn-top-logout:hover{cursor: pointer;}
+.cn-top-logout > a:hover{text-decoration: none !important;}
+
+/**
+ * left样式
+ */
+
+.left-title{background: #3F81B2;color: #ffffff;font-size: 20px;height: 38px;line-height: 38px;}
+.left-title .left-title-right{background: #539CC7;width: 45px;padding: 0px 4px;}
+.company-name{list-style: none;padding-left: 8px;font-size: 18px;color: #ffffff;text-align: center;}
+.company-name li{height: 38px;line-height: 38px;width: 100%;background: #539CC7;margin-bottom: 10px;}
+
+/**
+ *table样式
+ */
+.table-title{font-size: 14px;line-height: 40px;height: 40px;font-weight: bolder; }
+
+
+.table2{border: 1px solid #dee5e7;}
+.table2 > tbody > tr > th:nth-child(2n+1),.table2 > tbody > tr > td:nth-child(2n+1){text-align: right;background:#F7F9F8; }
+.table2 >tbody > tr > th:nth-child(2n),.table2 >tbody > tr > td:nth-child(2n){text-align: left;background: #ffffff;}
+.table2  tr  td , .table2  tr  th {padding-left: 20px;font-size: 13px;}
+
+
+/*树形样式*/
+.ztree li a {
+    text-overflow:ellipsis;overflow:hidden;width:70%;color: #577185!important;
+}
+.css_li_first span{}
+.treeNode_single_style{color: #000000!important;}

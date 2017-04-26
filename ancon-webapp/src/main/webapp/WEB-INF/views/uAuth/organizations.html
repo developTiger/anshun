@@ -1,0 +1,27 @@
+$ui.loadCss("userInfo/users.css")
+#parse("/uAuth/commonleft.html")
+
+<div class="col-xs-10" style="width: 86.333333%;">
+    <div class="right-users-top col-xs-12">
+        <div class="col-xs-2" style="min-width: 275px;">
+            <label>名称：</label>
+            <input type="text">
+        </div>
+        <div class="col-xs-4" style="min-width:375px;">
+            <input type="button" class="green-search-btn" value="搜索">
+            <input type="button" class="blue-adduser-btn" value="新增用户">
+        </div>
+    </div>
+
+    <div class="col-xs-12 right-users-table">
+        <input type="hidden" value="dept" id="ajax_attend">
+        <div id="table"></div>
+        <div class="col-lg-10 dataTables_paginate text-right  ">
+            <ul class="pagination "></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(["app/user/userBasicInfo"]);
+</script>

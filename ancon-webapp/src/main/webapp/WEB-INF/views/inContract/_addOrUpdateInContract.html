@@ -1,0 +1,154 @@
+$ui.loadCss("select2/select2.min.css")
+<script type="text/javascript">
+    var data;
+
+
+</script>
+<style>
+    .error {
+        font-size: 15px;
+        color: #ff0000;
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+<form class="ancon_in_contract addOrUpdateInContractForm">
+    <input type="hidden" name="id" value="$!been.id"/>
+
+    <div class="ancon_in_contract_content" style="margin-top: 12px">
+        <div class="ancon_in_contract_1">
+            <span style="margin-bottom: 0px">名称：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <input type="text" name="name" value="$!been.name" required="required"/>
+        </div>
+        <div class="ancon_in_contract_3">
+            <span>合同编号：</span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <input type="text" name="num" value="$!been.num" required="required"/>
+        </div>
+    </div>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span for="">所属的销售合同：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <select class="select2" name="salId" style="width: 202px;">
+                <option value="">关联销售合同</option>
+                #if($saleContracts)
+                #foreach($company in $companys)
+                <optgroup style="background-color: #9b99a3" label="$company.deptName">
+                #foreach($sal in $saleContracts)
+                #if($sal.companyId==$company.id)
+                <option value="$!sal.id" #if($been.salId==$sal.id) selected #end>$sal.name</option>
+                #end
+                #end
+                </optgroup>
+                #end
+                #end
+            </select>
+        </div>
+        <div class="ancon_in_contract_3">
+
+            <span>金额（万元）：</span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <input type="text" name="value" value="$!been.value" required="required"/>
+        </div>
+    </div>
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>合同签订日期：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <input class="Wdate fa fa-calendar" type="text" name="sbillDate" value="$!been.sbillDate"
+                   required="required"/>
+        </div>
+        <div class="ancon_in_contract_3">
+            <span>合同到期日期：</span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <input class="Wdate fa fa-calendar" type="text" name="sendDate" value="$!been.sendDate"
+                   required="required"/>
+        </div>
+    </div>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>所属分公司名称：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <!--<input type="hidden" name="companyId" value="$been.companyId"/>-->
+            <!--<input class="readonly" type="text" name="company" value="$been.company" readonly/>-->
+
+            <select name="companyId" style="width: 202px;height: 32px" required="required">
+                <option value="">请选择分公司</option>
+                #if($companys)
+                #foreach($first in $companys)
+                <option value="$first.id" #if($been.companyId==$first.id) selected #end>$first.deptName</option>
+                #end
+                #end
+            </select>
+        </div>
+        <div class="ancon_in_contract_3">
+            <span>乙方名称：</span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <input type="hidden" name="partyBId" value="$been.partyBId"/>
+            <input class="readonly" type="text" name="partyB" value="$been.partyB" readonly/>
+
+            <!--<select name="partyBId" style="width: 202px;height: 32px" required="required">-->
+            <!--<option value="">请选择乙方</option>-->
+            <!--#if($secondList)-->
+            <!--#foreach($second in $secondList)-->
+            <!--<option value="$second.id" #if($been.partyBId==$second.id) selected #end>$second.name</option>-->
+            <!--#end-->
+            <!--#end-->
+            <!--</select>-->
+        </div>
+    </div>
+
+    <div class="ancon_in_contract_content " style="float: left;">
+        <div class="ancon_in_contract_1">
+            <span style="margin-bottom: 0px">合同状态：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <select name="status" style="width: 202px;height: 32px" required="required">
+                <option value="Run">请选择状态</option>
+                <option value="Run" #if($been.status=="Run") selected #end>施工中</option>
+                <option value="Finish" #if($been.status=="Finish") selected #end>已完结</option>
+            </select>
+        </div>
+        <div class="ancon_in_contract_3">
+            <span></span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <input class="" type="hidden"/>
+        </div>
+    </div>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1_remark">
+            <span>备注:</span>
+        </div>
+        <div class="ancon_in_contract_remark">
+            <textarea name="remark" id="" rows="4" placeholder="必要的文字说明 ">$!been.remark</textarea>
+
+        </div>
+    </div>
+    <div class="hr_1"></div>
+    <div class="inContract_submit">
+        <button type="submit" class="btn blue-btn space_right addOrEdit_inContract"
+                data-url="ajax_addOrUpdate_inContract">保存
+        </button>
+        <button class="btn gray-btn left-space" id="cancelModal" type="button">取消</button>
+    </div>
+</form>
+<script>
+    require(['app/inContract/inContract_index']);
+
+</script>
+
+

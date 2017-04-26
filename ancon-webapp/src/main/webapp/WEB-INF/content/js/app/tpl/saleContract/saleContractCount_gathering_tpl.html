@@ -1,0 +1,63 @@
+<table class=" table-striped table-bordered dataTable no-footer silverygray-table">
+
+    <thead>
+    <tr class="headings">
+        <!--<th><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title" >序号</th>
+
+        <th class="column-title">合同名称</th>
+        <th class="column-title" >所属合同编号</th>
+        <th class="column-title">所属分公司</th>
+
+        <th class="column-title">收款金额(万元)</th>
+        <th class="column-title">收款日期</th>
+
+        <th class="column-title">收款方式</th>
+        <th class="column-title">甲方名称</th>
+        <th class="column-title">收款人</th>
+        <!--<th class="column-title">最近修改人</th>-->
+
+        <th class="column-title">备注</th>
+        <!--<th class="column-title">操作</th>-->
+        <!--<th class="bulk-actions" colspan="7">-->
+            <!--<a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>-->
+        <!--</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = 0%>
+    <%if(items.length > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <!--<td class=" " > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+
+        <td class=" ">
+            <a href="sra_s_i?id=<%=items[i].saleContractDto.id%>&companyId=<%=items[i].saleContractDto.companyId%>"><%=items[i].saleContractDto.name%></a>
+        </td>
+        <td class=" "><%=items[i].saleContractDto.num%></td>
+        <td class=" "><%=items[i].saleContractDto.branchCompany%></td>
+
+        <td class=" "><%=items[i].gatheringMoney%></td>
+        <td class=" "><%=dateFormat2(items[i].gatheringTime)%></td>
+
+        <td class=" "><%=items[i].gatheringType%></td>
+        <td class=" "><%=items[i].jiafangName%></td>
+        <td class=" "><%=items[i].gatheringPerson%></td>
+        <!--<td class=" "><%=items[i].lastUpdatePerson%></td>-->
+
+        <td class=" "><%=items[i].remark%></td>
+        <!--<td class=" ">-->
+            <!--<a class="btn i_modal" data-url="_addGatheringManagement?id=<%=items[i].id%>" data-title="修改信息"><i class="green fa fa-edit"></i> 修改</a>-->
+            <!--<a class="btn deleteGathering" data-url="deleteGatheringManagement?id=<%=items[i].id%>"><i class="red fa fa-remove"></i> 删除</a>-->
+        <!--</td>-->
+
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="11" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

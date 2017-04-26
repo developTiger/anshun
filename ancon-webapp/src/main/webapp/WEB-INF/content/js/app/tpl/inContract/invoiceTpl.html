@@ -1,0 +1,66 @@
+<!--这是进项合同基本信息页面的开票统计-->
+
+<table class="table-striped table-bordered dataTable no-footer silverygray-table" style="margin-bottom: 13px">
+
+    <thead>
+    <tr class="headings">
+        <th class="column-title" style="width: 45px">序号</th>
+        <th class="column-title">开票日期</th>
+        <th class="column-title">发票金额（万元）</th>
+
+        <th class="column-title">发票类型</th>
+        <th class="column-title">计税方式</th>
+        <th class="column-title">登记人</th>
+        <th class="column-title">最近修改人</th>
+        <th class="column-title">备注</th>
+        <%if(oprator=="operate"){%>
+        <th class="column-title">操作</th>
+        <%}%>
+    </tr>
+    </thead>
+
+    <tbody>
+    <%var num = (pageNumber-1)*pageSize%>
+    <%if(items.length>0){%>
+    <%for(var i=0;i < items.length;i++){%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <td class=""><%=num+i+1%></td>
+        <td class=""><%=items[i].sinvoiceDate%></td>
+        <td class=""><%=items[i].money%></td>
+        <td class=""><%=items[i].typeName%></td>
+        <td class=""><%=items[i].rateTypeName%></td>
+        <td class=""><%=items[i].optionName%></td>
+        <td class=""><%=items[i].edtitor%></td>
+        <td class=""><%=items[i].remark%></td>
+
+        <%if(oprator=="operate"){%>
+        <td class="">
+            <a class="i_modal btn " data-url="addOrUpdate_invoice_modal?invoice_id=<%=items[i].id%>"
+               data-title="修改开票信息"><i class="green fa fa-edit"></i> 修改</a>
+            <a class="btn deleteInvoice" data-url="deleteInvoice?id=<%=items[i].id%>"><i class="red fa fa-remove"></i>
+                删除</a>
+        </td>
+        <%}%>
+    </tr>
+
+    <%}}else{%>
+    <tr>
+        <td colspan="10" style="text-align: center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+
+</table>
+
+<%if(items.length>0 ){%>
+<div  class="table_last_count" style="height: 50px;line-height: 50px;background-color: #F4F4F4;margin-top: -13px;">
+    <span style="margin-left: 30px;">合计：</span>
+
+    <span style="font-weight: bolder;font-size: 16px">
+
+      <%=items[0].totalMoney%> 万元
+
+    </span>
+</div>
+
+<%}%>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="max-age:5000">
+    <title>安顺燃气</title>
+    <script data-main="js/rjs-config.js" src="js/require.js"></script>
+    <script  src="js/jslib/jquery.min.js"></script>
+    $ui.loadCss("bootstrap/bootstrap.min.css")
+    $ui.loadCss("fonts/css/font-awesome.min.css")
+    $ui.loadCss("animate.min.css")
+    $ui.loadCss("icheck/skins/minimal/minimal.css")
+    $ui.loadCss("alert.css")
+  
+   <!-- $ui.loadCss("icheck/skins/minimal/minimal.css")
+    $ui.loadCss("style.css")
+  $ui.loadCss("custom.css")
+    -->
+    $ui.loadCss("common.css")
+    <script>
+        require(['app/init']);
+    </script>
+    <script>
+        $(document).ready(function() {
+            var b_name = navigator.appName;
+            var b_version = navigator.appVersion;
+            var version = b_version.split(";");
+            var trim_version = version[1].replace(/[ ]/g, "");
+            if (b_name == "Microsoft Internet Explorer") {
+                /*如果是IE6或者IE7*/
+                if (trim_version == "MSIE8.0" ||trim_version == "MSIE7.0" || trim_version == "MSIE6.0") {
+                    $("#browser_ie").show();
+                }
+            }
+        });
+//        if (!$.support.leadingwhitespace) {
+//            $("#browser_ie").show();
+//        }
+    </script>
+</head>
+
+<body class="">
+     <div id="browser_ie" class=" row"
+     style="background-color: gold;display: none;  padding: 5px;margin: 2px; height: 50px;color:#c0392b;">
+    <div class="col-xs-5 text-right ">
+        <p>检测到您的浏览器版本过低，可能导致网站不能正常访问！
+            <br>为了确保您能更好的使用系统功能，请使用此类兼容的浏览器。</p>
+    </div>
+    <div class="col-xs-5 text-left">
+            <span class="pull-left text-center" >
+            <a href="app/Chrome.exe" target="_blank">
+                <img src="images/chrome.png" height="25px"><br>chrome
+            </a>
+            </span>
+            <span  class="pull-left  text-center" style="margin-left:10px; ">
+                <a href="app/Firefox.exe" target="_blank"><img src="images/firefox.png" height="25px"><br>firefox
+                </a>
+            </span>
+            <span class=" pull-left  text-center" style="margin-left:10px; ">
+                <a href="app/IE11.EXE" target="_blank"><img src="images/ie.png" height="25px"><br>ie9及以上
+                </a>
+            </span>
+            <span class="clearfix"></span>
+    </div>
+    <div class="col-xs-1 pull-right text-right red">
+        <a id="closeKillIE" class="text-dangers">
+            <li class="fa fa-close"></li>
+        </a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+     <div class="container">
+
+         <div class="row">
+             #parse("/common/top.html")
+         </div>
+     </div>
+     <div class="container">
+         <div class="row">
+             #parse($view)
+         </div>
+     </div>
+
+     <div class="login-bottom text-center">
+         <h5 class="h5">地址：江苏省溧阳市南大街129号安顺大厦 丨 邮编：213300 丨 电话：0519-87260155 丨传真：0519-87260198</h5>
+         <h5 class="h5"> CopyRight &#169; 2015 anshun All Rights Reserved 苏ICP备12038426号-1</h5>
+         <div>
+             技术支持：<img src="/images/sy.png" style="vertical-align: middle;margin-top:-2px;">
+             <a style="color:#a8c7df" target="_blank" href="http://www.sunesoft.com">常州尚易信息科技有限公司</a>
+         </div>
+     </div>
+
+<script>
+    $("#closeKillIE").click(function(){
+        $("#browser_ie").hide();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+#parse("inContract/inContract_left.html")
+$ui.loadCss("zTree/css/metroStyle/metroStyle.css")
+$ui.loadCss("inContract/inContract.css")
+
+<style>
+    .ztree{background:#141E27; }
+
+    .ztree li{padding-top: 5px;padding-bottom: 5px;}
+    .ztree li a.curSelectedNode{background:none;color:#FCFFFF !important;border:none;opacity: 1;}
+</style>
+<div class="col-xs-10 js_test_height" style="width: 86.333333%;">
+    <input type="hidden" value="$!List_inContractId" name="count_id"/>
+    <input type="hidden" value="$!List_inContractPid" name="count_pid"/>
+
+
+    <!--新增完之后 展示当前新增的合同-->
+    <input  type="hidden" name="inContract_add_id" value="$!inContract_add_id">
+    <input  type="hidden" name="inContract_add_companyId" value="$!inContract_add_companyId">
+
+
+
+
+    <div class="tab_style table_Info sc_index_2">
+
+    </div>
+
+    <div class="content_c">
+        <div class="content_title">
+            发票管理
+        </div>
+        <div class="space_solid"></div>
+
+        <div class="content_next">
+            <form id="select_invoice_conditionForm">
+                <span class="in_font">开票日期:</span>
+                <input type="text" class="form-control sc_index_input_style Wdate ate" placeholder="开始时间" name="beginTime1"/>
+                --
+                <input type="text" class="form-control sc_index_input_style  Wdate" placeholder="结束时间" name="endTime1"/>
+                <span class="" style="margin-left: 40px;">发票类型：</span>
+                <select name="invoiceType" class="form-control sc_index_input_style">
+                    <option value="" selected>全部</option>
+                    <option value="Common">增税普票</option>
+                    <option value="Special">增税专票</option>
+                </select>
+                <button type="button" class="btn green-btn left-space select_invoice_condition"
+                        data-url="ajax_query_invoice_page" style="background-color: #70ca10">筛选
+                </button>
+                <div style="display: inline-block" class="vis_finished hidden" >
+                    <a class=" btn blue-btn left-space i_modal  addOrUpdate_invoice js_modal_invoice"  m_width="950px"
+                            data-title="登记发票"
+                            data-url="addOrUpdate_invoice_modal?inContractId=">
+                        <em class="iconfont">&#xe654;</em>
+                        登记发票
+                    </a>
+                </div>
+            </form>
+            <div class="bottom-space"></div>
+            <div class="table_invoice">
+            </div>
+            <div class="dataTables_paginate  page_style">
+                <ul class="pagination "></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content_c">
+        <div class="content_title">
+                付款管理
+        </div>
+        <div class="space_solid"></div>
+        <div class="content_next">
+            <form id="select_pay_conditionFrom">
+                <span class="in_font">  付款日期：</span>
+               <input type="text" class="form-control sc_index_input_style Wdate ate" placeholder="开始时间" name="beginTime2"/>
+                  --
+                <input type="text" class="form-control sc_index_input_style  Wdate" placeholder="结束时间" name="endTime2"/>
+                <button type="button" class="btn green-btn left-space select_pay_condition"
+                        data-url="ajax_query_pay_page">筛选
+                </button>
+                <div style="display: inline-block" class="pis_finished hidden">
+                    <a class=" btn blue-btn left-space i_modal js_modal_pay " style="display: inline-block"  m_width="1px"
+                            data-url="addOrUpdate_pay_modal?inContractId=" data-title="登记付款">
+                        <em class="iconfont">&#xe654;</em>登记付款
+                    </a>
+                </div>
+            </form>
+            <div class="bottom-space"></div>
+            <div class="table_pay">
+            </div>
+            <div class=" dataTables_paginate page_style " >
+                <ul class="pagination "></ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    require(['app/inContract/inContract_index']);
+</script>
+

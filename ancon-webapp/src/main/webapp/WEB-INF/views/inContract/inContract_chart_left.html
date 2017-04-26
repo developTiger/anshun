@@ -1,0 +1,41 @@
+<style>
+    .sale_left_li_style{color: #ffffff!important;background-color: #141E27;border-left: 2px solid #17AAD6}
+</style>
+
+
+    <div class="col-xs-2 saleContract_left inContract_charts_left js_height"  style="background-color:rgb(30, 50, 65);height: 680px;width: 13.666667%;">
+        <div style="height: 50px;line-height: 50px;text-indent: 20px;border-bottom: 2px solid #13212A;">
+            <span style="font-size: 15px;font-family: arial, 宋体, sans-serif;color: #7F98A9;">主菜单</span>
+        </div>
+        <ul>
+            <li class="saleContract_first">
+                <em class="iconfont">&#xe604;</em>
+                销售合同
+                <em class="iconfont pull-right hidden Js_sale_icon_first">&#xe608;</em>
+                <em class="iconfont pull-right  Js_sale_icon_second">&#xe605;</em>
+            </li>
+            <li class="Js_sale_chartAndTable hidden  "><a class="#if($saleContract_left =='2') sale_left_li_style #end" href="sra_s_t"><em class="iconfont">&#xe621;</em>合同统计图</a></li>
+            <li class="Js_sale_chartAndTable hidden "><a class="#if($saleContract_left =='1') sale_left_li_style #end" href="sra_s_c"><em class="iconfont" >&#xe607;</em>合同统计表</a></li>
+            <li class="Js_sale_chartAndTable hidden"><a class="#if($saleContract_left =='3') sale_left_li_style #end" href="sra_s_b"><em class="iconfont"  >&#xe607;</em>合同开票统计表</a></li>
+            <li class="Js_sale_chartAndTable hidden"><a class="#if($saleContract_left =='4') sale_left_li_style #end" href="sra_s_g"><em class="iconfont" >&#xe607;</em>合同收款统计表</a></li>
+            <li class="Js_sale_chartAndTable hidden"><a class="#if($saleContract_left =='5') sale_left_li_style #end" href="sra_s_v"><em class="iconfont"  >&#xe607;</em>施工产值统计表</a></li>
+            <li class="Js_sale_chartAndTable hidden"><a class="#if($saleContract_left =='6') sale_left_li_style #end" href="sra_s_rf"><em class="iconfont"  >&#xe607;</em>合同报表</a></li>
+            <li class="Js_sale_chartAndTable hidden"><a class="#if($saleContract_left =='7') sale_left_li_style #end" href="sra_s_trf"><em class="iconfont" >&#xe607;</em>合同动态总报表</a></li>
+            <li class="inContract_ninth">
+                <em class="iconfont">&#xe604;</em>
+                进项合同
+                <em class="iconfont pull-right hidden Js_in_icon_first">&#xe608;</em>
+                <em class="iconfont pull-right Js_in_icon_second">&#xe605;</em>
+            </li>
+            <li class="Js_in_chartAndTable hidden"><a href="sra_i_c" class=" #if($check_i_c) sale_left_li_style #end" ><em class="iconfont">&#xe69b;</em>合同统计图</a></li>
+            <li class="Js_in_chartAndTable hidden"><a href="sra_q_i" class=" #if($check_q_i) sale_left_li_style #end"><em class="iconfont" >&#xe607;</em>合同统计表</a></li>
+            <li class="Js_in_chartAndTable hidden"><a href="sra_q_p"><em class="iconfont" >&#xe607;</em>合同付款统计表</a></li>
+            <li class="Js_in_chartAndTable hidden"><a href="sra_q_v"><em class="iconfont" >&#xe607;</em>合同发票统计表</a></li>
+        </ul>
+
+    </div>
+
+<script>
+    require(['app/saleContract/dataReports_public']);
+</script>
+

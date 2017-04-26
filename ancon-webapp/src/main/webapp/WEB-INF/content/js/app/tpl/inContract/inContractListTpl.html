@@ -1,0 +1,61 @@
+
+
+<!--这是进项合同统计列表的-->
+<table class="table table-striped table-bordered dataTable no-footer silverygray-table">
+
+    <thead>
+    <tr class="head">
+        <th>序号</th>
+
+        <th>合同名称</th>
+        <th>合同编号</th>
+        <th>合同金额（万元）</th>
+        <th>已付款（万元）</th>
+        <th>已开发票（万元）</th>
+        <th>乙方</th>
+        <th>合同签订日期</th>
+        <th>合同到期日期</th>
+        <th>剩余天数提醒</th>
+        <th>登记人</th>
+        <th>备注</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%if(items.length>0){%>
+    <%var num = (pageNumber-1)*pageSize%>
+    <%for(var i=0;i < items.length;i++){%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <td class="num"><%=num+i+1%></td>
+
+        <td class="" style="text-decoration: underline "><a target="_blank" href="sra_in_index?inContract_id=<%=items[i].id%>&inContract_pid=<%=items[i].partyBId%>"><%=items[i].name%></a></td>
+        <td class=""><%=items[i].num%></td>
+
+        <td class=""><%=items[i].value%></td>
+        <td class=""><%=items[i].payMoney%></td>
+        <td class=""><%=items[i].billMoney%></td>
+        <td class=""><%=items[i].partyB%></td>
+        <td class=""><%=items[i].sbillDate%></td>
+        <td class=""><%=items[i].sendDate%></td>
+        <%if(items[i].nextDays<=15){%>
+        <td class="" style="color: #ff0000"><%=items[i].nextDays%></td>
+        <%}else{%>
+        <td class=""><%=items[i].nextDays%></td>
+        <%}%>
+        <td class=""><%=items[i].optionName%></td>
+        <td class=""><%=items[i].remark%></td>
+
+    </tr>
+
+
+    <%}}else{%>
+
+    <tr>
+        <td colspan="12" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+    <tfoot>
+
+
+    </tfoot>
+</table>

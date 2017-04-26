@@ -1,0 +1,85 @@
+<!--
+<div class="cn-alert-content">
+    <div class="form-group">
+        <label class="">用户名：</label>
+        <input type="text">
+    </div>
+    <div class="form-group">
+        <label class="control-label">手机号：</label>
+        <div><input type="text"></div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">所属机构：</label>
+        <div>
+            <select style="width: 180px;">
+                <option>总公司经营管理部</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">所属机构：</label>
+        <select style="width: 180px;">
+            <option>经理</option>
+        </select>
+    </div>
+    <div class="cn-alert-bottom form-group">
+        <input type="button" value="新增">
+        <input type="button" value="取消">
+    </div>
+</div>-->
+<div class="cn-alert-content">
+
+    <form id="addOrUpdate" data-parsley-validate="" class="form-horizontal form-label-left " novalidate="">
+
+    <input type="hidden" name="id" #if($id)value="$id"#end>
+    <div class="form-group cn-alert-div">
+        <label class="control-label  col-xs-5" for="login-name">用户名 <span class="required">:</span>
+        </label>
+        <div class="col-xs-6">
+            <input type="text" id="login-name" required="required" #if($uname)value="$uname.loginName"#end name="loginName" class=" cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4639"></ul>
+        </div>
+    </div>
+    <div class="form-group cn-alert-div">
+        <label class="control-label  col-xs-5" for="login-name">姓名<span class="required">:</span>
+        </label>
+        <div class="col-xs-6">
+            <input type="text" id="name" required="required" #if($uname)value="$uname.name"#end name="name" class=" cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4639"></ul>
+        </div>
+    </div>
+
+    <div class="form-group cn-alert-div">
+        <label class="control-label  col-xs-5" for="login-name">手机号 <span class="required">:</span>
+        </label>
+        <div class="col-xs-6">
+            <input type="text" id="sdf-name" required="required" #if($uname)value="$uname.mobile"#end name="mobile" class="cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-3639"></ul>
+        </div>
+    </div>
+
+    <div class="form-group cn-alert-div">
+        <label class="control-label col-xs-5">所属机构 <span class="required">:</span>
+        </label>
+        <div class="col-xs-6">
+            <select id="deptId"  required="required" name="deptId" class="cn-alert-select col-xs-7" data-parsley-id="0004">
+                <option value="123" >请选择</option>
+                #if($beans)
+                    #foreach($bean in $beans)
+                    <option value="$bean.id" #if($bean.deptName == $uname.deptName)selected="selected"#end >$bean.deptName</option>
+                    #end
+                #end
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group cn-alert-div">
+        <div class=" an-alert-border"></div>
+        <div class=" col-xs-12 cn-alert-bottom-btn">
+
+            <button type="submit" id="add" data-url="ajax_update_user"  class="cn-alert-bottom-button ">提交</button>
+            <button type="button" id="cancelModal" class="cn-alert-bottom-button">取消</button>
+        </div>
+    </div>
+
+</form>
+
+</div>

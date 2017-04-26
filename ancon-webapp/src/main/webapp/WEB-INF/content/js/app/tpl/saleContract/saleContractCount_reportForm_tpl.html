@@ -1,0 +1,46 @@
+<table class=" table-striped table-bordered dataTable no-footer silverygray-table">
+
+    <thead>
+    <tr class="headings">
+        <!--<th><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title" >序号</th>
+        <th class="column-title">所属分公司</th>
+        <th class="column-title">合同总额(万元)</th>
+        <th class="column-title">开票总额(万元)</th>
+
+        <th class="column-title">收款统计(万元)</th>
+        <th class="column-title">施工产值(万元)</th>
+        <!--<th class="column-title">操作</th>-->
+        <!--<th class="bulk-actions" colspan="7">-->
+            <!--<a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>-->
+        <!--</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = 0%>
+    <%if(items.length > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <!--<td class=" " > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td class=" "><%=items[i].branch_company%></td>
+        <td class=" "><%=items[i].sum_year_judge_money%></td>
+        <td class=" "><%=items[i].sum_billing_money%></td>
+
+        <td class=" "><%=items[i].sum_gathering_money%></td>
+        <td class=" "><%=items[i].sum_output_value%></td>
+
+        <!--<td class=" ">-->
+            <!--<a class="i_modal btn" data-url="_addBillingManagement?id=<%=items[i].id%>" data-title="修改信息"><i class="green fa fa-edit"></i> 修改</a>-->
+            <!--<a class="btn deleteBilling" data-url="deleteBillingManagement?id=<%=items[i].id%>"><i class="red fa fa-remove"></i> 删除</a>-->
+        <!--</td>-->
+
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="11" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

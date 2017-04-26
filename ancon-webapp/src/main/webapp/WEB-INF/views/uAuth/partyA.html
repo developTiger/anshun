@@ -1,0 +1,26 @@
+$ui.loadCss("userInfo/users.css")
+#parse("/uAuth/commonleft.html")
+$ui.loadCss("bootstrap-multiselect/bootstrap-multiselect.css")
+<div class="col-xs-10">
+    <form id="searchForm"  data-url="ajax_partyA_query_list">
+        <div class="right-users-top col-xs-12">
+            <div class="col-xs-2" style="min-width: 275px;">
+                <label>名称：</label>
+                <input type="text">
+            </div>
+
+            <div class="col-xs-6">
+                <input type="button" class="orange-search-btn" value="搜索">
+                <input type="button" class="i_modal blue-adduser-btn" data-title="添加甲方" data-url="_addPartyAForm" value="新增甲方">
+            </div>
+        </div>
+    </form>
+
+    <div class="col-xs-12 right-users-table">
+        <input type="hidden" value="partyA" id="ajax_attend">
+        <div id="table"></div>
+        <div class="col-lg-12 dataTables_paginate text-right  ">
+            <ul class="pagination "></ul>
+        </div>
+    </div>
+</div>

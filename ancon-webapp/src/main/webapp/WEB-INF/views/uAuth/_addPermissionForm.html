@@ -1,0 +1,89 @@
+<!--
+
+<form id="addPermissionForm" data-parsley-validate="" class="form-horizontal form-label-left " novalidate="">
+
+    <input type="hidden" name="id" #if($sysPermission)value="$sysPermission.id"#end>
+    <div class="form-group">
+        <label class="control-label  col-xs-3" for="permission-name">权限组名称 <span class="required">*</span>
+        </label>
+        <div class="col-xs-6">
+            <input type="text" id="permission-name" required="required"  #if($sysPermission)value="$sysPermission.name"#end name="permissionName"
+                   class="form-control col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4639"></ul>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label  col-xs-3" for="permission-sort">排序 <span class="required">*</span>
+        </label>
+        <div class="col-xs-6">
+            <input type="text" id="permission-sort" required="required" #if($sysPermission)value="$sysPermission.sort"#end name="permissionSort"
+                   class="form-control col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-2038"></ul>
+        </div>
+    </div>
+    <input type="hidden" id="menuIds"  #if($sysPermission)value="$sysPermission.menuIds"#end >
+    <div class="form-group">
+        <label class="control-label  col-xs-3" for="permission-name">菜单权限 <span class="required">*</span>
+        </label>
+        <div id="tree1"  class="col-xs-6 ztree"></div>
+        <input type="hidden" id="menuId"  name="permissionMenuIds">
+
+    </div>
+
+
+
+
+
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class=" col-xs-6 col-xs-offset-3">
+            <button type="submit" id="addOrUpdatePermission" data-url="ajax_add_update_permission" class="btn btn-success">提交</button>
+            <button type="button" id="cancelModal" class="btn btn-primary">取消</button>
+
+        </div>
+    </div>
+</form>
+-->
+
+
+<div class="cn-alert-content">
+    <form id="addOrUpdate" data-parsley-validate="" class="form-horizontal form-label-left " novalidate="">
+
+        <input type="hidden" name="id" #if($sysPermission)value="$sysPermission.id"#end>
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="permission-name">名称 <span class="required">:</span>
+            </label>
+            <div class="col-xs-6">
+                <input type="text" id="permission-name" required="required" #if($sysPermission)value="$sysPermission.name"#end name="permissionName" class=" cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4639"></ul>
+            </div>
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="permission-sort">排序 <span class="required">:</span>
+            </label>
+            <div class="col-xs-6">
+                <input type="text" id="permission-sort" required="required" #if($sysPermission)value="$sysPermission.sort"#end name="permissionSort"
+                       class="cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4939"></ul>
+            </div>
+        </div>
+
+        <input type="hidden" id="menuIds"  #if($sysPermission)value="$sysPermission.menuIds"#end >
+        <div class="form-group">
+            <label class="control-label  col-xs-5" for="permission-name">菜单权限 <span class="required">:</span>
+            </label>
+            <div id="tree1"  class="col-xs-6 ztree"></div>
+            <input type="hidden" id="menuId"  name="permissionMenuIds">
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <div class=" an-alert-border"></div>
+            <div class=" col-xs-12 cn-alert-bottom-btn">
+
+                <button type="submit" id="add" data-url="ajax_add_update_permission" class="cn-alert-bottom-button ">提交</button>
+                <button type="button" id="cancelModal" class="cn-alert-bottom-button">取消</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+

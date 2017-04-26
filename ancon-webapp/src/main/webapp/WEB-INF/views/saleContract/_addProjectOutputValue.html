@@ -1,0 +1,50 @@
+<form class="sc_i_judge" id="addProjectOutputValueForm" style="width: 650px">
+
+    <input class="hiddenTest_style" type="text" name="id" value="$!bean.id">
+    <input class="hiddenTest_style" type="text" id="conValue_saleContract_id" name="conValue_saleContract_id">
+
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">开始日期：</span>
+        </div>
+
+        <div class="sc_i_judge_right ">
+            <input type="text" class="sc_i_judge_input_style Wdate ete" required="required"  name="be_time" id="con_begin_time"  #if($bean.beginTime) value="$helper.formatDateToString($!bean.beginTime,'yyyy-MM-dd') #end">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">结束日期：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="Wdate sc_i_judge_input_style" name="en_time" id="con_end_time" required="required" #if($bean.endTime) value="$helper.formatDateToString($!bean.endTime,'yyyy-MM-dd') #end">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">产值(万元)：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="sc_i_judge_input_style" name="outputValue"  value="$!bean.outputValue">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left" style="vertical-align: top">
+            <span class="">备注：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <textarea class="" cols="46" rows="5" name="remark">$!bean.remark</textarea>
+        </div>
+    </div>
+    <div class="hr_1"></div>
+    <div class="sc_i_judge_top">
+        <button type="submit" class="btn blue-btn" id="addProjectOutputValue" data-url="ajax_addOrUpdate_constructionValue_saleContract">保存</button>
+        <button type="button" class="btn gray-btn cancelModal" >取消</button>
+    </div>
+</form>
+<!--<script>-->
+    <!--require(['app/saleContract/saleContract_index_judge']);-->
+<!--</script>-->

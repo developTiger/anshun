@@ -1,0 +1,24 @@
+$ui.loadCss("select2/select2.min.css")
+<div class="row">
+    <div class="col-lg-4">
+        <select class="select2_group form-control">
+            #foreach($item in $empInfos)
+            <optgroup label="$item.deptName">
+
+                #foreach($e in $item.empDtos)
+                <option value="$e.id">$e.name
+
+                </option>
+                #end
+            </optgroup>
+            #end
+
+        </select>
+    </div>
+
+</div>
+
+
+<script>
+    require(["app/demon/select2Demon"])
+</script>

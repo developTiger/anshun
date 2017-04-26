@@ -1,0 +1,65 @@
+
+<div class="cn-alert-content">
+    <form id="addOrUpdate" data-parsley-validate="" class="form-horizontal form-label-left " novalidate="">
+
+        <input type="hidden" name="id" #if($bean)value="$bean.id"#end>
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="name">甲方名称 <span class="required">:</span>
+            </label>
+            <div class="col-xs-6">
+                <input type="text" id="name" required="required" #if($bean)value="$bean.name"#end name="name" class=" cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4639"></ul>
+            </div>
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="address">甲方地址 <span class="required">:</span>
+            </label>
+            <div class="col-xs-6">
+                <input type="text" id="address" required="required" #if($bean)value="$bean.address"#end  name="address" class="cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-7639"></ul>
+            </div>
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="ownerShip">所有制 <span class="required">:</span>
+            </label>
+
+            <div class="col-xs-6">
+                <select id="ownerShip"  required="required" name="ownerShip" class="cn-alert-select col-xs-7" data-parsley-id="0004">
+                    <option value="" >请选择</option>
+                    <option value="LimitedCompany"   #if($bean.ownerShip =="LimitedCompany") selected="selected" #end >有限公司</option>
+                    <option value="PrivateEnterprise" #if($bean.ownerShip =="PrivateEnterprise") selected="selected" #end>民营企业</option>
+                    <option value="SOE" #if($bean.ownerShip =="SOE") selected="selected" #end>国有企业</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="RepresentativePerson">代表人 <span class="required">:</span>
+            </label>
+            <div class="col-xs-6">
+                <input type="text" id="RepresentativePerson" required="required" #if($bean)value="$bean.RepresentativePerson"#end  name="RepresentativePerson" class="cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-3639"></ul>
+
+            </div>
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <label class="control-label  col-xs-5" for="Remarks">备注 <span class="required">:</span>
+            </label>
+            <div class="col-xs-6">
+                <input type="text" id="Remarks" required="required" #if($bean)value="$bean.Remarks"#end  name="Remarks" class="cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-2639"></ul>
+
+            </div>
+        </div>
+
+        <div class="form-group cn-alert-div">
+            <div class=" an-alert-border"></div>
+            <div class=" col-xs-12 cn-alert-bottom-btn">
+
+                <button type="submit" id="add" data-url="ajax_add_update_partyA" class="cn-alert-bottom-button ">提交</button>
+                <button type="button" id="cancelModal" class="cn-alert-bottom-button">取消</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

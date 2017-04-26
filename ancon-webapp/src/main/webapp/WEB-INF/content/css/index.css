@@ -1,0 +1,15 @@
+/*section_1*/
+.section_1{margin-top: 30px}
+.section_1_first{background-color: #648CA6;height: 168px;border-radius: 5px;width: 23%;display: inline-block;margin-right: 2.2%}
+.section_1_div_1{font-size: 16px;color: #ffffff;margin-left: 8px;margin-top: 20px;text-align: left;margin-left: 20px}
+.section_1_div_2{color: #ffffff;text-align: center;margin-top: 25px;}
+.section_1_word_1{font-size: 40px}
+.section_1_word_2{font-size: 24px}
+
+/*section_2*/
+.section_2{padding: 0px 5px;margin-top: 30px}
+
+/*section_3*/
+.section_3{padding: 0px 5px;margin-top: 30px;margin-bottom: 50px}
+
+.index_icon_style{color: #67A4D2}

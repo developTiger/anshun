@@ -1,0 +1,46 @@
+a {
+    cursor: pointer;
+    text-decoration: none!important;
+    color:#1682c3;
+}
+a:active, a:hover
+{
+    text-decoration: underline!important;
+    color:darkred;
+}
+
+.error {
+    color: red;
+    margin-top: -5px;
+
+}
+.container{
+    min-width: 1280px;
+}
+
+
+.table .disabled input {
+    background: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.modal-center {
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    position: absolute;
+}
+
+.top8 {
+    padding-top: 9px;
+}
+
+.modal-nomal-width{
+    display: inline-block;
+    width: 500px;
+}
+
+
+

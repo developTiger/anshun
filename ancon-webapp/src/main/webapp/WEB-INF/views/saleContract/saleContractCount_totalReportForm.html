@@ -1,0 +1,24 @@
+$ui.loadCss("saleContract.css")
+#parse("/saleContract/saleContract_left.html")
+<div class="saleContract_right col-xs-10" style="width: 86.333333%;">
+
+    <div class="saleContract_right_content col-xs-12 saleContract_right_padding" style="margin-top: 15px">
+        <div class="col-xs-12">
+            <div class="row">
+                <a class="btn green-btn "  href="ajax_totalReportForm_down" style="width: 106px;height: 40px;color: white; ">
+                        <em class="iconfont" style="font-size: 14px;margin-right: 5px">&#xe62f;</em>导出列表
+                    </a>
+            </div>
+        </div>
+        <div class="table" data-url="ajax_query_sc_index_totalReportForm"></div>
+        <div class="col-lg-12 dataTables_paginate  " style="text-align: right">
+            <ul class="pagination "></ul>
+        </div>
+    </div>
+
+</div>
+
+</div>
+<script>
+    require(['app/saleContract/saleContractCount']);
+</script>

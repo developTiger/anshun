@@ -1,0 +1,75 @@
+    <style>
+        .we{display: none}
+        .er{display: inherit}
+
+    </style>
+
+    <div class="col-xs-2 saleContract_left" style="height:800px;padding: 0px ;background-color:rgb(30, 50, 65);width: 13.666667%;" >
+
+        <!--合同统计链接过来 需要的id和companyId-->
+        <input class="hiddenTest_style" type="text" value="$!count_saleContractId" name="count_saleContractId">
+        <input class="hiddenTest_style" type="text" value="$!count_companyId" name="count_companyId">
+
+        <!--点击事件时，公司id和type就已经传过来了-->
+        <!--当前公司id   树形结构需要-->
+        <input class="hiddenTest_style" type="text" name="current_company_id">
+        <!--当前分公司类型     独立  非独立  权限判断-->
+        <input class="hiddenTest_style" type="text" name="current_company_type">
+
+
+            <div style="height: 50px;font-size: 15px;line-height: 50px;color: #577185;text-indent: 20px;">
+                <span>主菜单</span>
+                <!--<div style="display: inline;margin-left: 150px">-->
+                    <!--<em class="iconfont">&#xe606;</em>-->
+                    <!--&lt;!&ndash;<em class="iconfont">&#xe635;</em>&ndash;&gt;-->
+                <!--</div>-->
+
+            </div>
+            <ul style="padding: 0px" class="saleContract_index_left_ul">
+                #if($secondPartyDtos)
+                    #foreach($dto in $secondPartyDtos)
+
+                    <li  class="sc_index_left_li Js_single_li" style="cursor: pointer">
+                        <div data-value="$dto.id" companyType="$dto.type" class="Js_li_first css_li_first" style="color: #869fb1;height: 35px;line-height: 35px;">
+                            <div class="css_li_div_first"  title="$dto.deptName">
+                                <span style="margin-left: 10px;" class="dto_name">
+                                $dto.deptName
+                                </span>
+                            </div>
+
+                            <button type="button" class="btn btn-primary hidden   add_sale_contract i_modal1"  data-url="addSalecontract?companyId=$dto.id&companyName=$dto.deptName" data-title="添加销售合同"
+                                    style="height: 25px;width: 25px;position: relative;top: -14px">
+                                <em class="iconfont" style="font-size: 12px;position: relative;top: -5px;left: -6px;">&#xe6ac;</em>
+                            </button>
+                            <em class="iconfont pull-right  Js_first_icon" style="margin-right: 5%" >&#xe605;</em>
+                            <em class="iconfont pull-right Js_second_icon hidden" style="margin-right: 5%">&#xe608;</em>
+                        </div>
+
+                        <div class="hidden Js_zTree ">
+
+                            <div id="ztree_$dto.id" class="ztree" style="padding: 0px" ></div>
+
+                        </div>
+
+                    </li>
+
+                    #end
+                #end
+            </ul>
+
+        <!--#if($list)-->
+        <!--#foreach($saleContract in $list)-->
+        <!--<div class=" #if($saleContract.branchCompany !="常州科技软件公司") we #end  " style="border: 1px solid #d6d6d6">-->
+
+            <!--<div id="" class="   ">$saleContract.branchCompany</div>-->
+
+        <!--</div>-->
+        <!--#end-->
+        <!--#end-->
+
+    </div>
+
+
+
+
+

@@ -1,0 +1,195 @@
+
+
+    <input type="text" class="hiddenTest_style" value="<%=id%>" name="saleContractId">
+
+    <div class=" col-xs-12 table-title" style="border-bottom:1px solid #dee5e7;background: #F7F9F8;">
+        <div class="pull-left">基本信息</div>
+
+
+        <div class="pull-right" style="position: relative;top: -2px;">
+
+            <!--用户权限判断-->
+
+            <div class="cn_js_div_judged hidden" style="display: inline-block;">
+                <em class="iconfont">&#xe8a5;</em>
+                <input type="button" id="Js_already_judge_btn" class="i_modal " style="font-size: 13px;border: none;background: none;margin-left: -6px;"
+                       data-url="ajax_saleContract_baseInfo_judge?id=<%=id%>" data-title="定审" value="已定审">
+
+                <!--<button type="button" id="Js_already_judge_btn" class=" " style="font-size: 14px;margin-left: 5px;display: none">已定审</button>-->
+            </div>
+           <!-- <input type="button" id="Js_judge_btn" class="i_modal "style="display: none;"
+                   data-url="ajax_saleContract_baseInfo_judge?id=<%=id%>" data-title="定审" value="定审">
+
+            <input type="button" id="Js_updateInfo_btn" class="i_modal "style="display: none;"
+                   data-url="ajax_saleContract_baseInfo_update?id=<%=id%>" data-title="修改基本信息" value="修改">-->
+
+            <div class="cn_js_div_judge hidden" style="display: inline-block;color: #6A6A6A;">
+                <em class="iconfont">&#xe8a5;</em>
+                <input type="button" id="Js_judge_btn" class="i_modal "style="border: none;background: none;font-size: 13px;padding: 0px;margin-left: -4px;"
+                   data-url="ajax_saleContract_baseInfo_judge?id=<%=id%>" data-title="定审" value="定审">
+            </div>
+            <div class="cn_js_div_edit" style="display: inline-block;color: #6A6A6A;margin-left: 8px;">
+                <em class="iconfont">&#xe670;</em>
+                <input type="button" id="Js_updateInfo_btn" class="i_modal "style="border: none;background: none;font-size: 13px;padding: 0px;margin-left: -4px;"
+                       data-url="ajax_saleContract_baseInfo_update?id=<%=id%>" data-title="修改基本信息" value="修改">
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div style="padding: 20px;padding-top: 60px;">
+        <table class="table2">
+
+            <tr>
+                <td width="20%">合同编号</td>
+                <td width="30%"><%=num%></td>
+
+                <td width="20%">合同名称</td>
+                <td width="30%"><%=name%></td>
+            </tr>
+
+            <tr>
+                <td>所属分公司</td>
+                <td><%=branchCompany%></td>
+
+                <td>甲方名称</td>
+                <td><%=jiaFangName%></td>
+            </tr>
+            <tr>
+                <td>合同金额(万元)</td>
+                <td><%=contractMoney%></td>
+
+
+                <td>工程专业</td>
+                <td><%=projectMajor%></td>
+            </tr>
+
+            <tr>
+                <td>合同签订日期</td>
+                <td>
+                    <%if(contractBeginTime){%>
+                    <%=dateFormat2(contractBeginTime)%>
+                    <%}%>
+                </td>
+
+                <td>合同到期日期</td>
+                <td>
+                    <%if(contractEndTime){%>
+                    <%=dateFormat2(contractEndTime)%>
+                    <%}%>
+                </td>
+            </tr>
+            <tr>
+                <td>合同开工日期</td>
+                <td>
+                    <%if(projectStartTime){%>
+                    <%=dateFormat2(projectStartTime)%>
+                    <%}%>
+                </td>
+
+                <td>剩余天数提醒</td>
+                <td>
+                    <%if(contractStatus=="已结项"){%>
+                    合同已结束
+                    <%}else{%>
+
+                        <%if(surplusDay < 0){%>
+                        <span style="color: #ff0000">已逾期</span>
+                        <%}else{%>
+                        <%if(surplusDay<=30){%>
+                        <span style="color: #ff0000"><%=surplusDay%></span>
+                        <%}else{%>
+                        <%=surplusDay%>
+                        <%}%>
+                        <%}%>
+
+                    <%}%>
+                </td>
+            </tr>
+            <tr>
+                <td>合同状态</td>
+                <td id="Js_index_saleContract_status"><%=contractStatus%></td>
+                <td >
+                    <%if(parentContractDto){%>
+                    主合同编号
+                    <%}%>
+                </td>
+                <td>
+                    <%if(parentContractDto){%>
+                    <%=parentContractDto.num%>
+                    <%}%>
+                </td>
+            </tr>
+            <tr>
+                <td>合同类型</td>
+                <td><%=contractType%></td>
+
+                <td>是否含有中标通知书</td>
+                <td><%=bidNotice%></td>
+            </tr>
+
+            <tr>
+                <td>是否含施工许可证</td>
+                <td><%=constructLicense%></td>
+
+                <td>是否含有工程结算单</td>
+                <td><%=projectSettlement%></td>
+            </tr>
+            <tr>
+                <td>是否含有竣工验收单</td>
+                <td><%=finishCheck%></td>
+
+                <td>合同是否已返回</td>
+                <td><%=contractIsReturn%></td>
+            </tr>
+
+            <tr>
+                <td>定审金额(万元)</td>
+                <td>
+                    <%if(judgeStatus != "未定审"){%>
+                    <%=judgeMoney%>
+                    <%}%>
+                </td>
+
+                <td>定审日期</td>
+                <td>
+                    <%if(judgeTime){%>
+                    <%=dateFormat2(judgeTime)%>
+                    <%}%>
+                </td>
+            </tr>
+            <tr>
+                <td>已开票(万元)</td>
+                <td><%=billingCount%></td>
+
+                <td>开票率</td>
+                <td><%=billingRate%></td>
+            </tr>
+
+            <tr>
+                <td>已收款(万元)</td>
+                <td><%=receivablesCount%></td>
+
+                <td>收款率</td>
+                <td><%=gatheringRate%></td>
+            </tr>
+
+            <tr>
+                <td>施工产值总额(万元)</td>
+                <td><%=constructionValue%></td>
+
+                <td>施工产值率</td>
+                <td><%=conValueRate%></td>
+            </tr>
+            <tr>
+                <td>登记人</td>
+                <td><%=registerPerson%></td>
+
+                <td>备注</td>
+                <td><%=remark%></td>
+            </tr>
+        </table>
+    </div>
+

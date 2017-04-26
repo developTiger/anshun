@@ -1,0 +1,73 @@
+.chart_label {
+    border-top: 2px solid #69b1e4;
+    border-bottom: 1px solid #e4e4e4;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+    border: 1px solid #c9c9c9;
+    height: 630px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.chart_tittle {
+    height: 31px;
+    background-color: #ffffff;
+    padding-top: 5px;
+    border-bottom: 1px solid #c9c9c9;
+
+}
+
+.chart_tittle span {
+    font-size: 14px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.chart_tittle a {
+    text-decoration: underline;
+    float: right;
+}
+
+.searchFrom {
+    display: inline-block;
+    padding-top: 20px;
+    padding-left: 60px;
+}
+
+.searchFrom input {
+    width: 140px;
+    font-size: 13px;
+
+    border: 1px solid #c9c9c9;
+    vertical-align: middle;
+}
+
+.form_button {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.middle_line {
+    font-size: 17px;
+    font-weight: bolder;
+    color: #999999;
+}
+.iconfont_chart{
+    font-size: 14px;
+    color: #217ef0;
+    font-weight: lighter;
+}
+.in_font{
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: normal;
+}
+.input_text_font{
+    color: #999999;
+    font-family: normal;
+    font-size: 12px;
+    font-weight: 400;
+}

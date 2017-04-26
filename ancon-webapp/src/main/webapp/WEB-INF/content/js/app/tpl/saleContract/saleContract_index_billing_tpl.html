@@ -1,0 +1,85 @@
+<table class=" table-striped table-bordered dataTable no-footer silverygray-table">
+
+    <thead>
+    <tr class="headings">
+        <!--<th><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title" >序号</th>
+        <th class="column-title">金额(万元)</th>
+        <th class="column-title">税率</th>
+        <th class="column-title">税额</th>
+        <th class="column-title">价税合计</th>
+
+
+        <th class="column-title">开票日期</th>
+        <th class="column-title">计税方式</th>
+        <th class="column-title">甲方名称</th>
+        <th class="column-title">开票人</th>
+        <th class="column-title">最近修改人</th>
+
+        <th class="column-title">备注</th>
+
+        <th class="column-title Js_billing_saleContract_status">操作</th>
+
+        <!--<th class="bulk-actions" colspan="7">-->
+            <!--<a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>-->
+        <!--</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = 0%>
+    <%if(items.length > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <!--<td class=" " > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td class=" ">
+
+            <%=items[i].billingMoney%>
+
+        </td>
+        <td class=" "><%=items[i].taxRate%></td>
+        <td class=" ">
+            <%if(items[i].taxMoney){%>
+            <%=items[i].taxMoney%>
+            <%}%>
+        </td>
+        <td class=" ">
+
+            <%=items[i].priceTaxCountMoney%>
+
+        </td>
+
+        <td class=" "><%=dateFormat2(items[i].billingDate)%></td>
+        <td class=" "><%=items[i].taxType%></td>
+        <td class=" "><%=items[i].jiafangName%></td>
+        <td class=" "><%=items[i].billingPerson%></td>
+        <td class=" "><%=items[i].lastEditPerson%></td>
+
+        <td class=" "><%=items[i].remark%></td>
+
+        <td class="Js_billing_saleContract_status ">
+            <a class="i_modal btn" data-url="_addBillingManagement?id=<%=items[i].id%>&saleContractId=<%=items[i].saleContractDto.id%>" data-title="修改信息"><i class="green fa fa-edit"></i> 修改</a>
+            <a class="btn deleteBilling" data-url="deleteBillingManagement?id=<%=items[i].id%>"><i class="red fa fa-remove"></i> 删除</a>
+        </td>
+
+
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="12" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+<%if(items.length > 0){%>
+<div style="background-color: #FAFAFA;height: 65px;line-height: 65px" class="table_last_count">
+    <span style="margin-left: 30px;">合计：</span>
+    <span style="font-weight: bolder;font-size: 16px">
+
+        <%=items[0].billTotalMoney%> 万元
+
+    </span>
+</div>
+<%}%>
+

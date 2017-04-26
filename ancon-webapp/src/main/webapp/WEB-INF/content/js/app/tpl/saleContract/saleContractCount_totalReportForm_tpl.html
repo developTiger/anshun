@@ -1,0 +1,122 @@
+<table class=" table-striped table-bordered dataTable no-footer silverygray-table">
+
+    <thead>
+    <tr class="headings">
+        <!--<th><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title" >序号</th>
+        <th class="column-title">所属分公司</th>
+
+        <th class="column-title">本月累计销售合同额 <small>单位：万元</small></th>
+        <th class="column-title">当月同期增长幅度</th>
+        <th class="column-title">今年累计销售合同额 <small>单位：万元</small></th>
+        <th class="column-title">年度同期增长幅度</th>
+
+
+        <th class="column-title">开票统计 <small>单位：万元</small></th>
+        <th class="column-title">开票率</th>
+        <th class="column-title">收款统计 <small>单位：万元</small></th>
+        <th class="column-title">收款率</th>
+        <th class="column-title">施工产值 <small>单位：万元</small></th>
+        <th class="column-title">施工产值率</th>
+        <!--<th class="column-title">操作</th>-->
+        <!--<th class="bulk-actions" colspan="7">-->
+            <!--<a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>-->
+        <!--</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <%if(items.length > 0){%>
+    <%var num = 0%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <!--<td class=" " > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td class=" "><%=items[i].branch_company%></td>
+
+        <td class=" ">
+            <%if(items[i].sum_month_judge_money != null){%>
+            <%=items[i].sum_month_judge_money%>
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_month_judge_money != null && items[i].sum_month_past_judge_money != null){%>
+            <%=(items[i].sum_month_judge_money*100/items[i].sum_month_past_judge_money).toFixed(2)%> %
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_year_judge_money){%>
+            <%=items[i].sum_year_judge_money%>
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+
+        <td class=" ">
+            <%if(items[i].sum_year_judge_money != null && items[i].sum_year_past_judge_money != null){%>
+            <%= ((items[i].sum_year_judge_money*100/items[i].sum_year_past_judge_money).toFixed(2)) %> %
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+
+        <td class=" ">
+            <%if(items[i].sum_billing_money){%>
+            <%=items[i].sum_billing_money%>
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_billing_money != null && items[i].sum_month_judge_money ){%>
+            <%= (items[i].sum_billing_money*100/items[i].sum_year_judge_money).toFixed(2) %> %
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_gathering_money){%>
+            <%=items[i].sum_gathering_money%>
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_gathering_money != null && items[i].sum_month_judge_money ){%>
+            <%=(items[i].sum_gathering_money*100/items[i].sum_year_judge_money).toFixed(2)%> %
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_conValue_money){%>
+            <%=items[i].sum_conValue_money%>
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_conValue_money != null && items[i].sum_month_judge_money ){%>
+            <%=(items[i].sum_conValue_money*100/items[i].sum_year_judge_money).toFixed(2)%> %
+            <%}else{%>
+            /
+            <%}%>
+        </td>
+
+        <!--<td class=" ">-->
+            <!--<a class="i_modal btn" data-url="_addBillingManagement?id=<%=items[i].id%>" data-title="修改信息"><i class="green fa fa-edit"></i> 修改</a>-->
+            <!--<a class="btn deleteBilling" data-url="deleteBillingManagement?id=<%=items[i].id%>"><i class="red fa fa-remove"></i> 删除</a>-->
+        <!--</td>-->
+
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="11" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

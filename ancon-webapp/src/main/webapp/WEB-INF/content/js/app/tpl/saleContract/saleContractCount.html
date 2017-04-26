@@ -1,0 +1,179 @@
+<div style="width: 2500px; height: 100%;">
+<table class=" table-striped table-bordered dataTable no-footer silverygray-table" style="width: 2500px;">
+
+    <thead>
+    <tr class="headings">
+        <!--<th><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title" style="width: 60px">序号</th>
+        <th class="column-title" style="width: 130px">合同编号
+            <em class="iconfont number btn" >&#xe620;</em>
+            <em class="iconfont 2_number hidden btn" >&#xe62d;</em>
+        </th>
+        <th class="column-title" width="250px">合同名称</th>
+        <th class="column-title" width="160px">合同金额 (万元)</th>
+        <th class="column-title" width="160px">定审金额 (万元)</th>
+        <th class="column-title" width="250px">所属分公司</th>
+        <th class="column-title" width="250px">甲方</th>
+
+        <th class="column-title" width="130px">工程专业</th>
+        <th class="column-title" width="130px">合同类型</th>
+
+        <th class="column-title" width="130px">中标通知书
+            <em class="iconfont bidNotice btn" >&#xe620;</em>
+            <em class="iconfont 2_bidNotice hidden btn" >&#xe62d;</em>
+        </th>
+        <th class="column-title" width="130px">施工许可证
+            <em class="iconfont constructLicense btn" >&#xe620;</em>
+            <em class="iconfont 2_constructLicense hidden btn" >&#xe62d;</em>
+        </th>
+        <th class="column-title" width="130px">竣工验收单
+            <em class="iconfont finishCheck btn" >&#xe620;</em>
+            <em class="iconfont 2_finishCheck hidden btn" >&#xe62d;</em>
+        </th>
+        <th class="column-title" width="130px">工程结算单
+            <em class="iconfont projectSettlement btn" >&#xe620;</em>
+            <em class="iconfont 2_projectSettlement hidden btn" >&#xe62d;</em>
+        </th>
+        <th class="column-title" width="130px">合同是否已返回
+            <em class="iconfont contractIsReturn btn" >&#xe620;</em>
+            <em class="iconfont 2_contractIsReturn hidden btn" >&#xe62d;</em>
+        </th>
+
+        <th class="column-title" width="130px">合同签订日期</th>
+        <th class="column-title" width="130px">合同结束日期</th>
+        <th class="column-title" width="130px">剩余天数提醒</th>
+        <th class="column-title" width="130px">合同状态</th>
+
+        <th class="column-title" width="130px">开票统计</th>
+        <th class="column-title" width="130px">收款统计</th>
+        <th class="column-title" width="130px">施工产值</th>
+        <th class="column-title" width="130px">登记人</th>
+        <th class="column-title" width="300px">备注</th>
+        <!--<th class="bulk-actions" colspan="7">-->
+            <!--<a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>-->
+        <!--</th>-->
+    </tr>
+    </thead>
+    <tbody>
+
+    <%if(items.length > 0){%>
+    <%var num = (pageNumber-1)* pageSize%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <!--<td class=" " > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td class=" "><%=items[i].num%></td>
+        <td class=" "><a href="sra_s_i?id=<%=items[i].id%>&companyId=<%=items[i].companyId%>"><%=items[i].name%></a></td>
+        <td class=" "><%=items[i].contract_money%></td>
+        <td class=" "><%=items[i].judge_money%></td>
+        <td class=" "><%=items[i].branch_company%></td>
+        <td class=" "><%=items[i].jia_fang_name%></td>
+
+        <td class=" "><%=items[i].project_major%></td>
+        <td class=" "><%=items[i].contract_type%></td>
+
+        <td class=" ">
+            <%if(items[i].bid_notice == "2有未收回"){%>
+            <span style="color: red"><%=items[i].bid_notice.substring(1,items[i].bid_notice.length)%></span>
+            <%}%>
+            <%if(items[i].bid_notice == "0有已收回"){%>
+            <span style="color:green;"><%=items[i].bid_notice.substring(1,items[i].bid_notice.length)%></span>
+            <%}%>
+            <%if(items[i].bid_notice == "1无"){%>
+            无
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].construct_license == "2有未收回"){%>
+            <span style="color: red"><%=items[i].construct_license.substring(1,items[i].construct_license.length)%></span>
+            <%}%>
+            <%if(items[i].construct_license == "0有已收回"){%>
+            <span style="color:green;"><%=items[i].construct_license.substring(1,items[i].construct_license.length)%></span>
+            <%}%>
+            <%if(items[i].construct_license == "1无"){%>
+            无
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].finish_check == "2有未收回"){%>
+            <span style="color: red"><%=items[i].finish_check.substring(1,items[i].finish_check.length)%></span>
+            <%}%>
+            <%if(items[i].finish_check == "0有已收回"){%>
+            <span style="color:green;"><%=items[i].finish_check.substring(1,items[i].finish_check.length)%></span>
+            <%}%>
+            <%if(items[i].finish_check == "1无"){%>
+            无
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].project_settlement == "2有未收回"){%>
+            <span style="color: red"><%=items[i].project_settlement.substring(1,items[i].project_settlement.length)%></span>
+            <%}%>
+            <%if(items[i].project_settlement == "0有已收回"){%>
+            <span style="color:green;"><%=items[i].project_settlement.substring(1,items[i].project_settlement.length)%></span>
+            <%}%>
+            <%if(items[i].project_settlement == "1无"){%>
+            无
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].contract_is_return == "1否"){%>
+            <span style="color: red"><%=items[i].contract_is_return.substring(1,items[i].contract_is_return.length)%></span>
+            <%}%>
+            <%if(items[i].contract_is_return == "0是"){%>
+            <span style="color:green;"><%=items[i].contract_is_return.substring(1,items[i].contract_is_return.length)%></span>
+            <%}%>
+
+        </td>
+
+        <td class=" "><%=dateFormat2(items[i].contract_begin_time)%></td>
+        <td class=" "><%=dateFormat2(items[i].contract_end_time)%></td>
+        <td class=" ">
+
+            <%if(items[i].contract_status == "已结项"){%>
+            合同已结束
+            <%}else{%>
+
+                <%if(items[i].surplus_day < 0){%>
+                <span style="color: #ff0000">已逾期</span>
+                <%}else{%>
+                    <%if(items[i].surplus_day<=30){%>
+                    <span style="color: #ff0000"><%=items[i].surplus_day%></span>
+                    <%}else{%>
+                    <%=items[i].surplus_day%>
+                    <%}%>
+                <%}%>
+
+            <%}%>
+        </td>
+        <td class=" "><%=items[i].contract_status%></td>
+
+        <td class=" ">
+            <%if(items[i].sum_billing_money){%>
+            <%=items[i].sum_billing_money%>
+            <%}%>
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_gathering_money){%>
+            <%=items[i].sum_gathering_money%>
+            <%}%>
+
+        </td>
+        <td class=" ">
+            <%if(items[i].sum_output_value){%>
+            <%=items[i].sum_output_value%>
+            <%}%>
+        </td>
+        <td class=" "><%=items[i].register_person%></td>
+        <td class=" "><%=items[i].remark%></td>
+
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="23" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>
+</div>

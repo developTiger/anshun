@@ -1,0 +1,37 @@
+<div>1a ${name}</div>
+<div>2a ${name}</div>
+<form id="searchForm" data-url="ajax_empQuery_list">
+    <!--<input type="hidden" name="p" value="1">-->
+    <!--<input type="hidden" name="ps" value="10">-->
+    <input type="text" name="empName" >
+    <input type="button" id="empQueryBtn" value="查询">
+</form>
+
+
+<div id="table"></div>
+<div class="col-lg-10   ">
+    <ul class="paging "></ul>
+</div>
+
+
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>密码</th>
+    </tr>
+    #if($beans)
+    #foreach($bean in $beans)
+    <tr>
+
+        <td>$bean.empName</td>
+        <td>$bean.password</td>
+        <td> link?id =$bean.empName</td>
+        <td>{$bean.emp=null?d:s}</td>
+    </tr>
+    #end
+    #else
+    <tr>
+        <td colspan="4" align="center">暂无数据</td>
+    </tr>
+    #end
+</table>

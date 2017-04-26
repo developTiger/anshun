@@ -1,0 +1,44 @@
+<div class="cn-alert-content">
+
+    <form id="addOrUpdate" data-parsley-validate="" class="form-horizontal form-label-left " novalidate="">
+
+    <input type="hidden" name="id" #if($id)value="$id"#end>
+
+    <div class="form-group cn-alert-div">
+        <label class="control-label  col-xs-5" for="login-name">用户名 <span class="required">:</span>
+        </label>
+        <div class="col-xs-6">
+            <input type="text" id="login-name" required="required" #if($uname)value="$uname"#end name="loginName" class=" cn-alert-input col-md-7 col-xs-12" data-parsley-id="4639"><ul class="parsley-errors-list" id="parsley-id-4639"></ul>
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group cn-alert-div">
+        <label class="control-label col-xs-5">角色 <span class="required">:</span>
+        </label>
+        <div class="col-xs-6">
+            <select id="roleId"  required="required" name="roleId" class="cn-alert-select col-xs-7" data-parsley-id="0004">
+                <option value="123" >请选择</option>
+                #if($beansRole)
+                    #foreach($bean in $beansRole)
+                    <option value="$bean.id" #if($bean.name == $roleName )selected="selected"#end >$bean.name</option>
+                    #end
+                #end
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group cn-alert-div">
+        <div class=" an-alert-border"></div>
+        <div class=" col-xs-12 cn-alert-bottom-btn">
+
+            <button type="submit" id="add" data-url="ajax_update_user_role" class="cn-alert-bottom-button ">提交</button>
+            <button type="button" id="cancelModal" class="cn-alert-bottom-button">取消</button>
+        </div>
+    </div>
+
+</form>
+
+</div>

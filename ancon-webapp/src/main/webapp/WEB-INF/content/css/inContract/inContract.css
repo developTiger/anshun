@@ -1,0 +1,389 @@
+/******************************inContract_left******************/
+.inContract_left {
+    background: #1E303E;
+    max-width: 260px;
+    padding: 0px;
+}
+
+.in_left {
+    width: 114%;
+    height: 60px;
+    background-color: #037cbe;
+    padding-left: 20%;
+    padding-top: 14px;
+    margin-left: -16px;
+    margin-top: -10px;
+}
+
+.inContract_show {
+    list-style-type: none;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei', 微软雅黑, 'Microsoft JhengHei', 宋体;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.font_left_tittle {
+    font-size: 18px;
+    color: white;
+}
+
+.inContract_index {
+    margin-left: -15px;
+    background-color: #f6f6f6;
+    height: 36px;
+    padding-top: 9px;
+    padding-left: 20px;
+    font-family: 'Arial Normal', 'Arial';
+    position: relative;
+    margin-top: 0px;
+    width: 102.5%;
+}
+
+.inContract_content {
+    border-bottom: 1px solid #dee5e7;
+    font-size: 14px;
+    line-height: 40px;
+    height: 40px;
+    text-indent: 20px;
+    background-color: #f7f9f8
+
+}
+
+.left_font {
+    font-size: 14px;
+    font-weight: bolder;
+    font-family: 'Microsoft YaHei', 微软雅黑, "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+
+}
+
+.right_font {
+    float: right;
+    border: none;
+    background: none;
+
+}
+
+.bold_line {
+    border: #0eb556 solid 3px;
+    margin-bottom: 0px;
+}
+
+.tab_style {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.text-with {
+    width: 110px;
+    font-size: 14px;
+    border: 1px solid #c9c9c9;
+
+}
+
+.midline {
+    font-size: 20px;
+    font-family: '微软雅黑 Bold', '微软雅黑';
+    color: #999999;
+}
+
+.font-size {
+    font-size: 13px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.select-size {
+    padding-left: 8px;
+    height: 35px;
+    width: 140px;
+    color: #999999;
+    border: 1px solid #c9c9c9;
+}
+
+.bottom-space {
+    width: 100%;
+    height: 20px;
+}
+
+.left-space {
+    margin-left: 15px;
+}
+
+.little_space {
+    height: 10px;
+}
+
+.inContract_table {
+
+    font-family: 'Microsoft YaHei', 微软雅黑, 'Microsoft JhengHei', 宋体;
+    font-size: 13px;
+}
+
+.todd {
+    width: 208px;
+    height: 40px;
+    background-color: #F2F2F2;
+    padding-right: 15px;
+    text-align: right;
+    font-size: 14px;
+
+}
+
+.teven {
+    width: 453px;
+    height: 40px;
+    text-align: left;
+    padding-left: 22px;
+    font-size: 13px;
+}
+
+.inContract_list {
+    height: 70px;
+    width: 100%;
+    border: 2px solid #d7d7d7;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-bottom: 17px;
+    padding-top: 17px;
+}
+
+#partyB {
+    height: 34px;
+    width: 230px;
+    border: 1px solid #c9c9c9;
+
+}
+
+.excel {
+    height: 34px;
+    width: 106px;
+}
+
+.head {
+    background-color: #d2cfdd;
+
+}
+
+.payList {
+    height: 135px;
+    padding-top: 23px;
+    padding-left: 10px;
+    border: 1px solid #c9c9c9;
+    margin-bottom: 20px;
+
+}
+
+ #invoiceType {
+   min-width: 120px;
+    height: 34px;
+    border: 1px solid #c9c9c9;
+}
+#payStyle {
+    width: 110px;
+    height: 34px;
+    border: 1px solid #c9c9c9;
+}
+
+
+.fa {
+    font-size: 14px;
+}
+
+.in_top {
+    margin-top: -9px;
+}
+
+.add_inContract {
+    border: 1px hidden #2b2b1b;
+    width: 73px;
+    background-color: #217ef0;
+    float: right;
+    font-size: 12px;
+    text-align: center;
+    padding: 3px;
+
+}
+
+.no_play {
+    display: none;
+}
+
+.play {
+    display: block;
+}
+
+.ancon_in_contract {
+    font-family: '微软雅黑 Bold Oblique', '微软雅黑';
+    font-size: 14px;
+
+}
+
+.ancon_in_contract_1 {
+    text-align: right;
+    display: inline-block;
+    width: 170px;
+
+}
+
+.ancon_in_contract_2 {
+    display: inline-block;
+    text-align: left;
+    width: 270px;
+
+}
+
+.ancon_in_contract_2 input {
+    height: 32px;
+    width: 202px;
+    text-align: left;
+    border: 1px solid #c9c9c9;
+
+
+}
+
+.ancon_in_contract_3 {
+    text-align: right;
+    display: inline-block;
+    width: 132px;
+    margin-left: 15px;
+}
+
+.ancon_in_contract_4 {
+    display: inline-block;
+    width: 270px;
+    text-align: left;
+    margin-right: 35px;
+}
+
+.ancon_in_contract_4 input {
+    text-align: left;
+    width: 202px;
+    height: 32px;
+    border: 1px solid #c9c9c9;
+
+}
+
+.ancon_in_contract_content {
+
+    margin-bottom: 10px;
+    font-family: '微软雅黑 Bold Oblique', '微软雅黑';
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+
+.ancon_in_contract_remark {
+    text-align: left;
+    display: inline-block;
+    width: 75%;
+
+}
+
+.ancon_in_contract_remark textarea {
+    width: 92%;
+    margin-left: 8px;
+    border: 1px solid #c9c9c9;
+}
+
+.ancon_in_contract_1_remark {
+    margin-top: 3px;
+    vertical-align: top;
+    text-align: right;
+    width: 104px;
+    display: inline-block;
+
+}
+
+.space_right {
+    margin-right: 20px;
+}
+
+.inContract_submit {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.ancon_invoice_remark {
+    text-align: left;
+    display: inline-block;
+    width: 75%;
+    margin-left: 106px;
+    margin-top: -19px;
+}
+
+.ancon_invoice_remark textarea {
+    width: 92%;
+    margin-left: 8px;
+    border: 1px solid #c9c9c9;
+}
+
+#rateType {
+    width: 68%;
+    height: 34px;
+}
+
+#type {
+    width: 68%;
+    height: 34px;
+}
+
+#style {
+    width: 70%;
+    height: 34px;
+}
+
+.tbl_top {
+    margin-bottom: 10px;
+}
+.ancon_in_contract_1_remark_invoice{
+    margin-top: 3px;
+    vertical-align: top;
+    text-align: right;
+    width: 166px;
+
+}
+.in_font{
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: normal;
+}
+.space_solid{
+    border: 0px solid #dee5e7;
+}
+.content_title{
+    font-size: 14px;
+    line-height: 40px;
+    text-indent: 20px;
+    background-color: #f7f9f8;
+    font-weight: bolder;
+    border-bottom: 1px solid #dee5e7;
+}
+.page_style{
+    text-align: right;
+    position: relative;
+    top: -60px;
+    margin-right: 15px;
+    height: 15px;
+}
+.content_next{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.content_c{
+    border: 1px solid #dee5e7;
+    margin-bottom: 20px;
+}
+.readonly{
+    background-color: #e1dfee;
+}
+.select2-selection__rendered{
+    height: 31px;
+}
+textarea{
+    border: 1px solid #c9c9c9;
+}
+select{
+    border: 1px solid #c9c9c9;
+}

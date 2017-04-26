@@ -1,0 +1,148 @@
+$ui.loadCss("saleContract.css")
+$ui.loadCss("select2/select2.min.css")
+#parse("/saleContract/saleContract_left.html")
+<div class="col-xs-10 saleContractCount_charts" style="width: 86.333333%;">
+
+    <style>
+        .green-btn{margin-left: 20px;}
+    </style>
+    <div class="col-xs-12 saleContractCount_charts_padding" style="margin-top: 15px;    border: 1px solid #E4E4E4;">
+        <div class="col-xs-12 saleContractCount_charts_padding saleContract_charts_single_top" >
+            <div class="col-xs-6 saleContractCount_charts_padding " >
+                <em class="iconfont sale_chart_icon_style">&#xe930;</em>
+                <label>销售合同年度签单额统计 / </label><small>单位：万元</small> </label>
+            </div>
+            <div class="col-xs-6 saleContractCount_charts_padding saleContractCount_charts_font_position" >
+                <a class="saleContract_check sale_charts_check_style">查看明细</a>
+            </div>
+        </div>
+
+        <div class="col-xs-12 " >
+            <div class="col-xs-12 saleContractCount_charts_padding" style="margin: 15px 0px">
+                <form class="form-horizontal " id="sale_contracts">
+                    <div class="form-inline">
+                        <span class="control-label">选择年份：</span>
+                        <input class=" form-control yearDate saleContractCount_charts_input_style"  name="sale_countTime" style="border-radius: 0px;width: 150px" value="$!currentTime">
+
+                        <span class="control-label" style="margin-left: 50px">分公司：</span>
+                        <select class="sale_branchCompany form-control" style="width: 200px" name="sale_branchCompany">
+                            <option value="">请选择</option>
+                            #if($list)
+                            #foreach($dto in $list)
+                            <option value="$dto.id">$dto.deptName</option>
+                            #end
+                            #end
+                        </select>
+
+                        <span class="control-label" style="margin-left: 50px">甲方：</span>
+                        <select class="form-control select2_single sale_jiafang" style="width: 250px" name="sale_jiafang">
+                            <option value="">请选择</option>
+                            #if($dtos)
+                            #foreach($dto in $dtos)
+                            <option value="$dto.name">$dto.name</option>
+                            #end
+                            #end
+                        </select>
+                        <button type="button" class="btn green-btn sale_select">筛选</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-12 " style="height: 350px" id="chart_1"></div>
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 saleContractCount_charts_1_style" style="margin-top: 15px" >
+
+            <div class="col-xs-12 saleContractCount_charts_padding saleContractCount_charts_div_style saleContract_charts_single_top"  >
+                <div class="col-xs-6 saleContractCount_charts_padding">
+                    <em class="iconfont sale_chart_icon_style">&#xe676;</em>
+                    <label>各类型合同签单额 / </label><small>单位：万元</small>
+                </div>
+                <div class="col-xs-6 saleContractCount_charts_font_position saleContractCount_charts_padding">
+                    <a class="contractType_check sale_charts_check_style">查看明细</a>
+                </div>
+            </div>
+
+            <div class="col-xs-12 " style="margin-bottom: 20px" >
+
+                <form class="form-horizontal saleContractCount_charts_1_query" id="contractType_query_chart">
+                    <span class="control-label">选择日期：</span>
+                    <input type="text" class="saleContractCount_charts_input_style form-control  yearDate"  name="sale_countTime" value="$!currentTime">
+
+                    <button type="button"  class="btn green-btn" id="contractType_query_btn">筛选</button>
+                </form>
+
+                <div id="chart_3" class="saleContractCount_charts_height"></div>
+            </div>
+        </div>
+
+
+    <div class="col-xs-12 saleContractCount_charts_padding saleContractCount_charts_1_position">
+
+        <div class="col-xs-6 saleContractCount_charts_padding" style="padding-right:  15px">
+            <div class="col-xs-12 saleContractCount_charts_1_style">
+
+                <div class="col-xs-12 saleContractCount_charts_padding saleContractCount_charts_div_style saleContract_charts_single_top" >
+                    <div class="col-xs-6 saleContractCount_charts_padding">
+                        <em class="iconfont sale_chart_icon_style">&#xe676;</em>
+                        <label>各分公司签订合同额 / </label><small>单位：万元</small>
+                    </div>
+                    <div class="col-xs-6 saleContractCount_charts_font_position saleContractCount_charts_padding">
+                        <a class="branchCompany_check sale_charts_check_style">查看明细</a>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 " style="margin-bottom: 20px" >
+
+                        <form class="form-horizontal saleContractCount_charts_1_query" id="branchCompany_query_chart">
+                            <span class="control-label">选择日期：</span>
+                            <input type="text" class="saleContractCount_charts_input_style form-control Wdate" name="branchCompany_begin_time"> --
+                            <input type="text" class="saleContractCount_charts_input_style form-control Wdate" name="branchCompany_end_time">
+
+                            <button type="button"  class="btn green-btn" id="branchCompany_query_btn">筛选</button>
+
+                        </form>
+
+                    <div id="chart_2" class="saleContractCount_charts_height"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xs-6 saleContractCount_charts_padding"  style="padding-left: 15px">
+            <div class="col-xs-12 saleContractCount_charts_1_style">
+
+                <div class="col-xs-12 saleContractCount_charts_padding saleContractCount_charts_div_style saleContract_charts_single_top" >
+                    <div class="col-xs-6 saleContractCount_charts_padding">
+                        <em class="iconfont sale_chart_icon_style">&#xe676;</em>
+                        <label>各工程专业签订合同额 / </label><small>单位：万元</small>
+                    </div>
+                    <div class="col-xs-6 saleContractCount_charts_font_position saleContractCount_charts_padding">
+                        <a class="projectMajor_check sale_charts_check_style">查看明细</a>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 " style="margin-bottom: 20px" >
+
+                    <form class="form-horizontal saleContractCount_charts_1_query" id="projectMajor_query_chart" >
+                        <span class="control-label">选择日期：</span>
+                        <input type="text" class="saleContractCount_charts_input_style form-control Wdate"  name="projectMajor_begin_time"> --
+                        <input type="text" class="saleContractCount_charts_input_style form-control Wdate"  name="projectMajor_end_time">
+                        <button type="button"  class="btn green-btn" id="projectMajor_query_btn">筛选</button>
+                    </form>
+
+                    <div id="chart_4" class="saleContractCount_charts_height"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<script>
+    require(['app/saleContract/saleContractCount_chart']);
+    require(['app/saleContract/dataReports_public']);
+</script>

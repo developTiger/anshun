@@ -1,0 +1,47 @@
+
+<table class="table table-striped table-bordered dataTable no-footer">
+    <thead>
+    <tr class="headings">
+        <!--<th style="width: 50px"><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title">序号</th>
+        <th class="column-title">名称</th>
+        <th class="column-title">类型</th>
+        <th class="column-title">地址</th>
+        <th class="column-title">所有制性质</th>
+        <th class="column-title">代表人</th>
+        <th class="column-title">备注</th>
+        <th class="column-title no-link last showOperate">
+            <span class="nobr">操作</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = (pageNumber-1) * pageSize%>
+    <%if(pagesCount > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr>
+        <!--<td > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td><%=items[i].name%></td>
+        <td><%if(items[i].type==1){%>施工方<%}else if(items[i].type==2){%>发包方<%}else if(items[i].type==3){%>既是施工方也是发包方<%}else{%> <%}%> </td>
+        <td><%=items[i].address%></td>
+        <td><% if(items[i].ownerShip=="LimitedCompany") {%>有限公司<% }else if(items[i].ownerShip=="PrivateEnterprise"){%>民营企业<% }else if(items[i].ownerShip=="SOE"){%>国有企业<%} else {%><%}%> </td>
+        <td><%=items[i].RepresentativePerson%></td>
+        <td><%=items[i].Remarks%></td>
+
+        <td class=" last showOperate">
+            <a class="i_modal" data-title="修改乙方" data-url="_addPartyBForm?id=<%=items[i].id%>">
+                <i class="green fa fa-edit"></i>修改 </a>
+
+            <!--<a class="js_delete" data-url="_deletePartyBForm?id=<%=items[i].id%>">-->
+                <!--<i class="red fa fa-remove"></i>删除 </a>-->
+        </td>
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="14" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

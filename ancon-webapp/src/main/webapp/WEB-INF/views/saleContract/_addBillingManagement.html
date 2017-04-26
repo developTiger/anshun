@@ -1,0 +1,91 @@
+<form class="sc_i_judge" id="addBillingManagementForm" style="width: 650px">
+
+    <input class="hiddenTest_style" type="text" name="id" value="$!bean.id">
+    <input class="hiddenTest_style" type="text" id="billing_saleContract_id" name="billing_saleContract_id">
+    <input class="hiddenTest_style" type="text" id="restMoney" value="$!restMoney">
+
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">金额(万元) ：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="sc_i_judge_input_style " id="billingMoney"  name="billingMoney"  value="$!bean.billingMoney">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">税率(%) ：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="sc_i_judge_input_style " id="taxRate"  name="taxRate"  value="$!bean.taxRate">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">税额(万元) ：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="sc_i_judge_input_style " id="taxMoney"  name="taxMoney"  value="$!bean.taxMoney">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">价税合计(万元) ：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="sc_i_judge_input_style " id="priceTaxCountMoney"  name="priceTaxCountMoney"  value="$!bean.priceTaxCountMoney">
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">开票日期：</span>
+        </div>
+
+        <div class="sc_i_judge_right ">
+            <input type="text" class="Wdate ete  sc_i_judge_input_style " name="bilTime" required="required" #if($bean.billingDate) value="$helper.formatDateToString($!bean.billingDate,'yyyy-MM-dd') " #end>
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">计税方式：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <select  class="sc_i_judge_select_style" name="taxType">
+                <option value="一般计税" #if($bean.taxType =="一般计税") selected #end>一般计税</option>
+                <option value="简易征税" #if($bean.taxType =="简易征税") selected #end>简易征税</option>
+            </select>
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left">
+            <span class="">甲方名称：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <input type="text" class="sc_i_judge_input_style" required="required" name="jiafangName" #if($bean.jiafangName) value="$!bean.jiafangName" #else  value="$dto.jiaFangName" #end>
+
+        </div>
+    </div>
+    <div class="sc_i_judge_content sc_i_billing_error_style">
+        <div class="sc_i_judge_left" style="vertical-align: top">
+            <span class="">备注：</span>
+        </div>
+
+        <div class="sc_i_judge_right">
+            <textarea class="" cols="46" rows="5" name="remark">$!bean.remark</textarea>
+        </div>
+    </div>
+    <div class="hr_1"></div>
+    <div class="sc_i_judge_top">
+        <button type="submit" class="btn blue-btn" id="addBillingManagement" data-url="ajax_addOrUpdate_billingManagement_saleContract">保存</button>
+        <button type="button" class="btn gray-btn cancelModal" >取消</button>
+    </div>
+</form>
+<!--<script>-->
+    <!--require(['app/saleContract/saleContract_index_judge']);-->
+<!--</script>-->

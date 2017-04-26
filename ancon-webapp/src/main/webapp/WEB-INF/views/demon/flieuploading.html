@@ -1,0 +1,7 @@
+<form id="file_upload_id" name="file_upload_name" action="<%=root%>/CommonController.jhtml?method=doFileUpload" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="functionId" value="${functionId}"/>
+    <input type="hidden" name="fileType" value="${fileType}"/>
+    <input type="hidden" name="maxSize" value="${maxSize}"/>
+    <div><input type="file" name="file_upload"/></div>
+    <div><input type="submit" value="上传"/></div>
+</form>

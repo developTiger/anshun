@@ -1,0 +1,67 @@
+
+<table class="table table-striped table-bordered dataTable no-footer">
+    <thead>
+    <tr class="headings">
+        <!--<th style="width: 50px"><input type="checkbox" id="check-all"  class="checkAll "></th>-->
+        <th class="column-title">序号</th>
+        <th class="column-title">用户名</th>
+        <th class="column-title">姓名</th>
+        <th class="column-title">手机号</th>
+        <th class="column-title">所属机构</th>
+        <th class="column-title">角色</th>
+        <th class="column-title">状态</th>
+        <th class="column-title no-link last showOperate">
+            <span class="nobr">操作</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = (pageNumber-1) * pageSize%>
+    <%if(pagesCount > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr>
+        <!--<td > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td><%=items[i].loginName%></td>
+        <td><%=items[i].name%></td>
+        <td><%=items[i].mobile%></td>
+        <td><%=items[i].deptName%></td>
+        <td><%=items[i].roleName%></td>
+        <%if(items[i].status == "0"){%>
+        <td class="a-right green ">
+            启用
+        </td>
+        <%}%>
+        <%if(items[i].status == "1"){%>
+        <td class="a-right red ">
+            禁用
+        </td>
+        <%}%>
+
+        <td class=" last showOperate">
+            <a class=" i_modal  " data-title="角色设置" data-url="_addSetUserRoleForm?id=<%=items[i].id%>">
+            <i class="progress-bar-gray fa fa-user"></i>角色 </a>
+            <a class="i_modal"  data-title="修改用户" data-url="_addUserForm?id=<%=items[i].id%>">
+                <i class="green fa fa-edit"></i>修改 </a>
+            <a class="resetPwd" data-url="resetPwd?id=<%=items[i].id%>">
+                <i class="green fa fa-refresh"></i>重置密码 </a>
+            <%if(items[i].status == "0"){%>
+            <a class="js_reset0" data-title="<%=items[i].id%>" data-url="ajax_set_status">
+                <i class="green fa fa-play"></i>禁用 </a>
+            <%}%>
+            <%if(items[i].status == "1"){%>
+            <a class="js_reset1" data-title="<%=items[i].id%>" data-url="ajax_set_status">
+                <i class="green fa fa-pause"></i>启用 </a>
+            <%}%>
+            <a class="js_delete removeUser" data-url="ajax_remove_user?id=<%=items[i].id%>">
+                <i class="red fa fa-remove"></i>删除 </a>
+        </td>
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="14" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

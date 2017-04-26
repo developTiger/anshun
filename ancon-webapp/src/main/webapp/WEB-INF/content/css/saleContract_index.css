@@ -1,0 +1,43 @@
+/*----------------------------saleContract_index--------------------------------------------------------------*/
+/*公共样式*/
+
+.page_position{margin-top: -83px;margin-right: 8px;height: 65px;}
+.table-bordered {
+    border: 1px solid #cfdadd
+}
+
+.hr_1{border: 1px dashed gray;}
+.sc_index_word_2{color: #9C9C9C;}
+.sc_index_input_style{width: 175px;display: inline}
+
+.sc_index_1{height: 45px;border: 1px solid #c7cecf;line-height: 45px;font-size: 16px;text-indent: 15px}
+/*border: 1px solid #BCCDD7;*/
+.sc_index_word_1{text-indent: 10px;font-size: 20px}
+
+.sc_i_error_style{display: inline-block;width: 500px;text-align: left;}
+
+/*左边树形结构*/
+.sc_index_left_li{list-style: none;margin: 0px 0px;font-size: 13px;font-family: 微软雅黑}
+.css_li_first:hover{background-color: #141E27!important;color: #ffffff!important;}
+.css_li_first span:hover{color: #ffffff!important;}
+.css_li_div_first{text-overflow: ellipsis;overflow: hidden;width: 70%;display: inline-block;white-space: nowrap;}
+
+
+
+.sc_index_2{margin-bottom: 15px;border: 1px solid #dee5e7}
+
+.sc_index_3{margin-bottom: 15px;    border: 1px solid #dee5e7;padding: 0px}
+.sc_index_4{border: 1px solid #dee5e7;margin-bottom: 15px;padding: 0px }
+.sc_index_5{border: 1px solid #dee5e7;padding: 0px}
+.search-content{padding: 15px}
+.section_title{border-bottom:  1px solid #dee5e7;text-indent: 15px}
+
+/*基本信息 定审*/
+.sc_i_judge_content{margin-bottom: 20px;}
+.sc_i_judge_left{position: relative;top: 1px;display: inline-block;margin-right: 15px;width: 120px;text-align: right}
+.sc_i_judge_right{display: inline-block;}
+.sc_i_judge_top{margin-top: 15px}
+.sc_i_judge_input_style{width: 300px}
+.sc_i_judge_select_style{width: 300px;height: 32px}
+
+.sc_i_billing_error_style{text-align: left;margin-left: 60px;}

@@ -1,0 +1,128 @@
+$ui.loadCss("saleContract_index.css")
+$ui.loadCss("zTree/css/metroStyle/metroStyle.css")
+$ui.loadCss("select2/select2.min.css")
+#parse("/saleContract/saleContract_index_left.html")
+<style>
+    .error{color: #ff0000}
+    .hiddenTest_style{display: none}
+    .ztree{background:#141E27; }
+
+    .ztree li{padding-top: 5px;padding-bottom: 5px;}
+    .ztree li a.curSelectedNode{background:none;color:#FCFFFF !important;}
+</style>
+<div class="col-xs-10" style="margin-bottom: 15px;margin-top: 15px;width: 86.333333%;">
+
+
+    <!--新增完之后 展示当前新增的合同-->
+    <input class="hiddenTest_style" type="text" name="saleContract_add_id" value="$!saleContract_add_id">
+    <input class="hiddenTest_style" type="text" name="saleContract_add_companyId" value="$!saleContract_add_companyId">
+
+   <!--当前用户 公司id 公司和部门类型 编号  左侧树形悬浮用到-->
+    <input class="hiddenTest_style" type="text" name="current_user_company_id" value="$!userDto.CompanyId">
+    <input class="hiddenTest_style" type="text" name="current_user_companyOrDept_type" value="$!userDto.type">
+    <input class="hiddenTest_style" type="text" name="current_user_companyOrDept_no" value="$!userDto.deptNo">
+    <!--第一次加载 用户的新建合同权限 树形悬浮用到-->
+    <input class="hiddenTest_style" type="text" name="current_user_add_contract_anthority" value="$!current_power">
+
+    <!--当前用户 新建合同权限-->
+    <input class="hiddenTest_style" type="text" name="current_user_anthority">
+    <!--当前用户 开票 收款 产值权限 和定审权限    用于判断列表的是否可操作-->
+    <input class="hiddenTest_style" type="text" name="current_user_anthority_billing">
+    <input class="hiddenTest_style" type="text" name="current_user_anthority_gathering">
+    <input class="hiddenTest_style" type="text" name="current_user_anthority_conValue">
+
+    <!--<div class="sc_index_1">
+        <em class="iconfont" style="">&#xe63b;</em>
+        <span class="sc_index_1_company"> </span>  <span class="sc_index_1_first_contract">  </span>  <span class="sc_index_1_second_contract"></span>
+    </div>-->
+
+    <div class="sc_index_main">
+
+        <div class="sc_index_2">
+
+        </div>
+
+        <div class="sc_index_3 col-xs-12">
+            <div class="table-title section_title" style="background: #F7F9F8;" >
+                开票管理
+            </div>
+
+            <form id="billingSelectForm" class="form-horizontal search-content  sc_index_word_2" >
+                <span class="">开票日期：</span>
+                <input type="text" class="form-control sc_index_input_style Wdate ate" name="beginTime"> --
+                <input type="text" class="form-control sc_index_input_style Wdate  " name="endTime">
+                <span class="" style="margin-left: 40px">计税方式：</span>
+                <select class="form-control sc_index_input_style" name="billing_taxType">
+                    <option value="">请选择</option>
+                    <option value="一般征税">一般征税</option>
+                    <option value="简易征税">简易征税</option>
+                </select>
+                <input type="button" class="btn green-btn" id="billingSelect" data-url="ajax_query_sc_index_billing" value="筛选" style="margin-left: 35px">
+
+
+                <input type="button" class="btn blue-btn i_modal" data-title="登记开票" id="login_billing" data-url="_addBillingManagement?saleContractId="
+                       value="登记开票" style="margin-left: 10px;display: none">
+
+            </form>
+
+            <div class="sc_index_3_table" style="padding: 15px"></div>
+
+            <div class=" dataTables_paginate page_position" style="text-align: right">
+                <ul class="pagination " style="margin-right: 15px"></ul>
+            </div>
+            <div style="height: 15px;"></div>
+        </div>
+        <div class="sc_index_4 col-xs-12">
+            <div class="table-title section_title " style="background: #F7F9F8;">
+                收款管理
+            </div>
+
+
+            <form id="gatheringSelectForm" class="form-horizontal search-content  sc_index_word_2">
+                <span class="">收款日期：</span>
+                <input type="text" class="form-control sc_index_input_style Wdate" name="beTime"> --
+                <input type="text" class="form-control sc_index_input_style Wdate" name="enTime">
+                <input type="button" class="btn green-btn" id="gatheringSelect" data-url="ajax_query_sc_index_gathering" value="筛选" style="margin-left: 35px">
+
+                <input type="button" class="btn blue-btn i_modal" id="login_gathering" data-url="_addGatheringManagement?saleContractId=" data-title="登记收款"
+                       value="登记收款" style="margin-left: 10px;display: none">
+
+            </form>
+
+            <div class="sc_index_4_table" style="padding: 15px"></div>
+            <div class=" dataTables_paginate page_position " style="text-align: right;">
+                <ul class="pagination " style="margin-right: 15px"></ul>
+            </div>
+            <div style="height: 15px;"></div>
+        </div>
+        <div class="sc_index_5 col-xs-12">
+            <div class="table-title section_title" style="background: #F7F9F8;">
+                施工产值
+            </div>
+
+            <form id="conValueSelectForm" class="form-horizontal search-content  sc_index_word_2">
+                <span class="">填写日期：</span>
+                <input type="text" class="form-control sc_index_input_style Wdate" name="be_time"> --
+                <input type="text" class="form-control sc_index_input_style Wdate" name="en_time">
+                <input type="button" class="btn green-btn" id="conValueSelect" data-url="ajax_query_sc_index_constructionValue" value="筛选" style="margin-left: 35px">
+
+                <input type="button" class="btn blue-btn i_modal" data-url="_addProjectOutputValue" data-title="登记产值" id="loginConValue"
+                       value="登记产值" style="margin-left: 10px;display: none">
+            </form>
+
+            <div class="sc_index_5_table" style="padding: 15px"></div>
+            <div class=" dataTables_paginate page_position " style="text-align: right;">
+                <ul class="pagination " style="margin-bottom: 6px;margin-right: 15px"></ul>
+            </div>
+            <div style="height: 15px;"></div>
+
+
+        </div>
+    </div>
+
+
+</div>
+<script>
+    require(['app/saleContract/saleContract_index']);
+</script>
+

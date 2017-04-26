@@ -1,0 +1,51 @@
+<table class="table table-striped table-bordered dataTable no-footer">
+    <thead>
+    <tr class="headings">
+        <th style="width: 50px">
+        <input type="checkbox" id="check-all"  class="checkAll ">        </th>
+        <th class="column-title">参数名称 </th>
+        <th class="column-title">值 </th>
+        <th class="column-title">描述 </th>
+        <th class="column-title">备注 </th>
+
+        <th class="column-title">扩展1 </th>
+        <th class="column-title">扩展2 </th>
+        <th class="column-title">扩展3</th>
+        <th class="column-title">扩展4 </th>
+        <th class="column-title">扩展5 </th>
+        <th class="column-title no-link last">
+            <span class="nobr">操作</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = 0%>
+    <%if( items.length > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr>
+        <td > <input type="checkbox" class="checkBtn" name="table_records" value="<%=items[i].id%>"></td>
+        <td><%=items[i].paramName%></td>
+        <td><%=items[i].paramValue%></td>
+        <td class=" "><%=items[i].paramDesc%></td>
+        <td class=" "><%=items[i].remark%> </td>
+        <td class="a-right a-right "><%=items[i].attrbute1%></td>
+        <td class="a-right a-right "><%=items[i].attrbute2%></td>
+        <td class="a-right a-right "><%=items[i].attrbute3%></td>
+        <td class="a-right a-right "><%=items[i].attrbute4%></td>
+        <td class="a-right a-right "><%=items[i].attrbute5%></td>
+        <td class=" last">
+            <a class="i_modal" data-title="修改" data-url="_addParameterForm?ids=<%=items[i].id%>">
+                <i class="green fa fa-edit"></i>修改 </a>
+
+            <a class="js_delete" data-url="ajax_delete_parameter?ids=<%=items[i].id%>">
+                <i class="red fa fa-remove"></i>删除 </a>
+        </td>
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="11" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

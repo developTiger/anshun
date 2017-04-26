@@ -1,0 +1,43 @@
+<table class="table table-striped table-bordered dataTable no-footer">
+    <thead>
+    <tr class="headings">
+        <!--<th>-->
+        <!--<input type="checkbox" id="check-all"  class="checkAll flat">        </th>-->
+        <th class="column-title">序号</th>
+        <th class="column-title">机构名称 </th>
+        <th class="column-title">机构编号</th>
+        <th class="column-title">类型</th>
+        <th class="column-title">机构介绍</th>
+        <th class="column-title no-link last" style="width: 150px;"><span class="nobr">操作</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <%var num = (pageNumber-1) * pageSize%>
+    <%if(pageNumber > 0){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+    <tr>
+        <!--<td > <input type="checkbox" class="flat checkBtn" name="table_records" value="<%=items[i].id%>"></td>-->
+        <td class="num"><%=num+i+1%></td>
+        <td><%=items[i].deptName%></td>
+        <td><%=items[i].deptNo%></td>
+        <td><%if(items[i].type=="1"){%>集团<%} else if(items[i].type=="2"){%>独立分公司<%}else if(items[i].type=="3"){%>非独立分公司<%} else {%><%}%></td>
+        <td class=" "><%=items[i].brief%></td>
+
+        <td class=" last">
+
+            <a class="i_modal" data-title="机构修改" data-url="_addDeptForm?id=<%=items[i].id%>">
+                <span><i class="green fa fa-edit"></i>修改</span></a>
+
+            <a class="js_delete" data-url="ajax_deleteDept?ids=<%=items[i].id%>">
+                <span><i class="red fa fa-remove"></i>删除</span></a>
+        </td>
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="8" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>

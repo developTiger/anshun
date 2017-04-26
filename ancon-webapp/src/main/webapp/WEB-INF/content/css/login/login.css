@@ -1,0 +1,17 @@
+
+/**
+  *  login
+  */
+.h5{font-weight: 500!important;padding: 0; margin: 0;line-height: 24px;}
+input[type="text"],input[type="password"]{padding-left: 8px;}
+.login-pull-left{float: left;}
+.width100{width: 100%;}
+.login-content{padding: 30px;}
+.login-content > div{padding-bottom: 30px;}
+.login-content > div > label{font-size: 20px;color: #A8A8A8;padding-bottom: 6px;}
+.login-content > div > input{height: 40px;border:1px solid #CBCBCB;}
+.login-main{ width:480px;margin:0 auto;padding:150px 0;}
+.login-main h1{color: #ffffff;padding-bottom: 30px;font-weight: 500;font-size: 28px;letter-spacing: 2px;}
+.login-content{text-align: center;border: 10px solid #65A0DF;background: #ffffff;padding: 35px 38px 26px 38px;}
+.login-bottom{text-align: center;color: #a6a6a6;width: 100%;padding:50px 0;}
+.login-btn{width: 70px;margin-left: 92px;background: #5192C1;color: #ffffff;font-size: 21px;cursor: pointer;}

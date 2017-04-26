@@ -1,0 +1,217 @@
+/******************************进项合同统计列表样式*************/
+.inContract_form {
+    border: 2px solid #9b99a3;
+    height: 61px;
+    vertical-align: middle;
+    padding-top: 13px;
+    margin-bottom: 20px;
+    border: 1px solid #c9c9c9;
+    background-color: #ffffff
+
+}
+
+.content1 {
+    margin-left: 60px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.content1 label {
+    font-family: 'Microsoft YaHei', 微软雅黑, "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 14px;
+    text-align: left;
+}
+
+.content1 input {
+    width: 140px;
+
+    /*border: 1px solid #9C9C9C;*/
+    border: 1px solid #c9c9c9;
+}
+
+.content2 {
+    width: 350px;
+    margin-left: 60px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.content2 label {
+    font-family: 'Microsoft YaHei', 微软雅黑, "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 14px;
+    text-align: left;
+
+}
+
+.content2 select {
+    width: 230px;
+    height: 32px;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #c9c9c9;
+    color: #999999;
+}
+
+.left-space {
+    height: 32px;
+}
+
+.left-space1 {
+    margin-left: 0px;
+    height: 35px;
+}
+
+.searchFrom {
+    border: 1px solid #c9c9c9;
+    height: 114px;
+    vertical-align: middle;
+    padding-top: 13px;
+    margin-bottom: 30px;
+}
+
+.contentPay {
+    display: inline;
+    font-size: 14px;
+    width: 435px;
+    margin-left: 20px;
+
+}
+
+.contentPay input {
+    width: 140px;
+
+    /*border: 1px solid #9C9C9C;*/
+    border: 1px solid #c9c9c9;
+}
+
+.contentPay input[name='contract'] {
+    width: 190px;
+
+}
+
+.midline {
+    color: #999999;
+}
+
+.midlinePay {
+    font-size: 20px;
+    font-family: '微软雅黑 Regular', '微软雅黑';
+    color: #999999;
+}
+
+.parent_contract {
+    width: 300px;
+    font-size: 14px;
+    display: inline-block;
+    border: 1px solid #c9c9c9;
+}
+
+.contentPayB {
+    display:inline-block;
+    font-size: 14px;
+    width: 400px;
+    padding-left: 30px;
+
+}
+
+.contentPayB select {
+    width: 230px;
+    height: 32px;
+    border: 1px solid #c9c9c9;
+    color: #999999;
+    display: inline;
+}
+
+.second_line {
+    margin-top: 17px;
+    margin-left: -11px;
+    font-size: 17px;
+}
+
+.select_pay {
+    width: 32%;
+    display: inline;
+    margin-left: 88px;
+}
+
+.select_pay select {
+    height: 32px;
+    width: 189px;
+    border: 1px solid #c9c9c9;
+    color: #999999;
+
+}
+
+.invoiceList {
+    height: 120px;
+    padding-top: 18px;
+    font-size: 14px;
+    border: 1px solid #c9c9c9;
+    background-color: #ffffff
+
+}
+
+.invoiceTime {
+    display: inline;
+    /*padding-left: 22px;*/
+    padding-right: 60px;
+}
+
+.invoiceTime input {
+    padding-left: 8px;
+    width: 140px;
+    border: 1px solid #c9c9c9;
+}
+
+.invoiceTime select {
+    height: 32px;
+    text-align: left;
+    width: 140px;
+    border: 1px solid #c9c9c9;
+    color: #999999;
+}
+
+.invoicePartyB {
+    display: inline-block;
+    padding-left: 22px;
+}
+
+.invoicePartyB select {
+    height: 32px;
+    width: 180px;
+    text-align: left;
+    border: 1px solid #c9c9c9;
+    color: #999999;
+}
+
+.invoiceTimeContract {
+    height: 32px;
+    display: inline-block;
+    /*padding-left: 50px;*/
+
+}
+
+.invoiceTimeContract input {
+    width: 200px;
+    font-size: 13px;
+    /*border: 1px solid #9C9C9C;*/
+    border: 1px solid #c9c9c9;
+
+}
+
+.invoiceSecond {
+    padding-top: 15px;
+}
+
+.in_font {
+    color: #999999;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: normal;
+    display: inline-block;
+}
+.inContract_list_content{
+    padding: 0px;
+    margin: 0px;
+    background-color: #ffffff;
+}

@@ -1,0 +1,86 @@
+#parse("/inContract/inContract_chart_left.html")
+$ui.loadCss("/inContract/inContract_count.css")
+$ui.loadCss("saleContract.css")
+    <div class="col-xs-10 inContract_charts " style="border-top: hidden;padding: 12px;width: 86.333333%;">
+
+
+        <div class="col-xs-12 chart_label">
+            <div class="chart_tittle col-xs-12">
+                <span><i class="iconfont iconfont_chart">&#xe930;</i>进项合同统计/ <span class="in_font">单位：万元</span></span>
+                <a class="click_href" data-url="sra_q_i">查看明细</a>
+            </div>
+            <form class="inContract_char_count">
+                <div class="searchFrom">
+                    <label for="" class="in_font">统计时间:</label>
+                    <input type="text" class="timeClick Wdate input_text_font" name="beginTime" placeholder="开始时间"
+                           value="$beforeTime" id="time11"/>
+                    <label for="" class="middle_line">——</label>
+                    <input type="text" class="timeClick Wdate input_text_font" name="endTime" placeholder="结束时间"
+                           value="$nowTime" id="time21"/>
+                </div>
+                <button type="button" class="btn green-btn form_button" id="inContract_char_count_button"
+                        data-url="query_inContract_count" style="background-color: #70ca10">筛选
+                </button>
+            </form>
+            <div class="content_chart" id="inContract_bar_chart"
+                 style="min-width:100px;max-width:1300px;height: 500px;margin-left: 3%">
+
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 chart_label">
+            <div class="chart_tittle col-xs-12">
+                <span><i class="iconfont iconfont_chart">&#xe930;</i>付款统计/ <span class="in_font">单位：万元</span></span>
+                <a class="click_href" data-url="sra_q_p">查看明细</a>
+            </div>
+            <form class="pay_char_count">
+                <div class="searchFrom">
+                    <label for="" class="in_font">统计时间:</label>
+                    <input type="text" class="timeClick Wdate input_text_font" name="beginTime" placeholder="开始时间"
+                           value="$beforeTime" id="time12"/>
+                    <label for="" class="middle_line">——</label>
+                    <input type="text" class="timeClick Wdate input_text_font" name="endTime" placeholder="结束时间"
+                           value="$nowTime" id="time22"/>
+                </div>
+                <button type="button" class="btn green-btn form_button" id="pay_char_count_button"
+                        data-url="query_pay_count" style="background-color: #70ca10">筛选
+                </button>
+            </form>
+            <div class="content_chart pay_bar_chart" id="pay_bar_chart"
+                 style="min-width:100px;max-width:1300px;height: 500px;margin-left: 3%">
+
+            </div>
+        </div>
+
+
+        <div class=" col-xs-12 chart_label">
+            <div class="chart_tittle col-xs-12">
+                <span><i class="iconfont iconfont_chart">&#xe930;</i>进项合同发票统计/ <span class="in_font">单位：万元</span></span>
+                <a class="click_href" data-url="sra_q_v">查看明细</a>
+            </div>
+            <form class="invoice_char_count">
+                <div class="searchFrom">
+                    <label for="" class="in_font">统计时间:</label>
+                    <input type="text" class="timeClick Wdate input_text_font" name="beginTime " placeholder="开始时间"
+                           value="$beforeTime" id="time13"/>
+                    <label for="" class="middle_line">——</label>
+                    <input type="text" class="timeClick Wdate input_text_font" name="endTime" placeholder="结束时间"
+                           value="$nowTime" id="time23"/>
+                </div>
+                <button type="button" class="btn green-btn form_button" id="invoice_char_count_button"
+                        data-url="query_invoice_count" style="background-color: #70ca10">筛选
+                </button>
+            </form>
+            <div class="content_chart invoice_bar_chart" id="invoice_bar_chart"
+                 style="min-width:100px;max-width:1300px;height: 500px;margin-left: 3%">
+
+            </div>
+
+        </div>
+
+    </div>
+<script>
+    require(['app/inContract/inContract_chart'])
+    require(['app/saleContract/dataReports_public']);
+</script>

@@ -1,0 +1,120 @@
+$ui.loadCss("index.css")
+<div class="col-xs-12" style="min-width: 1200px;background-color: #F1F2F4;border-top: 1px solid #d3d6d8;">
+    <div class="section_1 col-xs-12" style="text-align: center">
+
+
+        <div class=" section_1_first" style="background-color: #648CA6;">
+            <div class="section_1_div_1">本月签单合同额</div>
+            <div class="section_1_div_2">
+                <span class="section_1_word_1">
+                    #if($thisMonth_money)
+                    $thisMonth_money万元
+                    #else
+                    /
+                    #end
+
+                </span>
+                <!--<span class="section_1_word_2">万元</span>-->
+
+            </div>
+        </div>
+        <div class=" section_1_first" style="background-color: #A4D39D;">
+            <div class="section_1_div_1">去年同期增长比例</div>
+            <div class="section_1_div_2">
+                <span class="section_1_word_1">
+                    $!monthRate
+                </span>
+            </div>
+        </div>
+        <div class=" section_1_first" style="background-color: #7BCBC8; ">
+            <div class="section_1_div_1">今年累计签单合同额</div>
+            <div class="section_1_div_2">
+                <span class="section_1_word_1">
+                    #if($thisYear_money)
+                    $thisYear_money万元
+                    #else
+                    /
+                    #end
+                </span>
+                <!--<span class="section_1_word_2">万元</span>-->
+
+            </div>
+        </div>
+        <div class=" section_1_first" style="background-color: #9FB7BB;margin-right: 0px">
+            <div class="section_1_div_1">去年同期增长比例</div>
+            <div class="section_1_div_2">
+                <span class="section_1_word_1">$!yearRate</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="section_2 col-xs-12" style="">
+        <div class="section_2_first col-xs-6" style="display: inline-block;">
+            <div class="section_2_first_1 col-xs-12" style="height: 45px;line-height: 45px;border: 1px solid #E1E6E9;background-color: #FFFFFF">
+                <em class="iconfont index_icon_style">&#xe930;</em>
+                <span style="font-size: 16px;font-weight: bold">今年销售合同额趋势  </span>
+
+                <a target="_blank" href="sra_s_c" class="pull-right">查看明细</a>
+            </div>
+            <div class="section_2_first_2 col-xs-12" id="section_2_first_2" style="border: 1px solid #E1E6E9;height: 415px;background-color: #FFFFFF">
+
+            </div>
+        </div>
+
+        <div class="section_2_first col-xs-6" style="display: inline-block;">
+            <div class="section_2_first_1 col-xs-12" style="height: 45px;line-height: 45px;border: 1px solid #E1E6E9;background-color: #FFFFFF">
+                <em class="iconfont index_icon_style">&#xe930;</em>
+                <span style="font-size: 16px;font-weight: bold">今年销售合同签单数趋势  </span>
+
+                <a target="_blank" href="sra_s_c" class="pull-right">查看明细</a>
+            </div>
+            <div class="section_2_first_2 col-xs-12" id="section_2_first_3" style="border: 1px solid #E1E6E9;height: 415px;background-color: #FFFFFF">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="section_3 col-xs-12" style="height: 470px;">
+        <div class="section_2_first col-xs-4" style="display: inline-block;">
+            <div class="section_2_first_1 col-xs-12" style="height: 45px;line-height: 45px;border: 1px solid #E1E6E9;background-color: #FFFFFF">
+                <em class="iconfont index_icon_style">&#xe930;</em>
+                <span style="font-size: 16px;font-weight: bold">今年开票统计  </span>
+
+                <a target="_blank" href="sra_s_b" class="pull-right">查看明细</a>
+            </div>
+            <div class="section_2_first_2 col-xs-12" id="section_2_first_4" style="border: 1px solid #E1E6E9;height: 415px;background-color: #FFFFFF">
+
+            </div>
+        </div>
+        <div class="section_2_first col-xs-4" style="display: inline-block;">
+            <div class="section_2_first_1 col-xs-12" style="height: 45px;line-height: 45px;border: 1px solid #E1E6E9;background-color: #FFFFFF">
+                <em class="iconfont index_icon_style">&#xe930;</em>
+                <span style="font-size: 16px;font-weight: bold">今年收款统计  </span>
+
+                <a target="_blank" href="sra_s_g" class="pull-right">查看明细</a>
+            </div>
+            <div class="section_2_first_2 col-xs-12" id="section_2_first_5" style="border: 1px solid #E1E6E9;height: 415px;background-color: #FFFFFF">
+
+            </div>
+        </div>
+        <div class="section_2_first col-xs-4" style="display: inline-block;">
+            <div class="section_2_first_1 col-xs-12" style="height: 45px;line-height: 45px;border: 1px solid #E1E6E9;background-color: #FFFFFF">
+                <em class="iconfont index_icon_style">&#xe930;</em>
+                <span style="font-size: 16px;font-weight: bold">今年施工产值统计  </span>
+
+                <a target="_blank" href="sra_s_v" class="pull-right">查看明细</a>
+            </div>
+            <div class="section_2_first_2 col-xs-12" id="section_2_first_6" style="border: 1px solid #E1E6E9;height: 415px;background-color: #FFFFFF">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    require(["app/index"]);
+</script>

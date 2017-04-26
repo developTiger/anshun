@@ -1,0 +1,86 @@
+<style>
+    .error {
+        color: #ff0000;
+        font-size: 3px;
+        padding: 0px;
+        margin: 0px;
+    }
+</style>
+<form class="ancon_in_contract addOrUpdateInvoiceForm">
+    <input type="hidden" name="id" value="$!been.id"/>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>开票金额(万元)：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <input type="text"  name="money" value="$!been.money" required="required"/>
+        </div>
+        <div class="ancon_in_contract_3">
+            <span>开票时间：</span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <input class="Wdate" type="text"  name="sinvoiceDate" value="#if($been)$been.sinvoiceDate#else$nowTime#end"
+                   required="required"/>
+        </div>
+
+    </div>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1">
+            <span>计税方式：</span>
+        </div>
+        <div class="ancon_in_contract_2">
+            <select name="rateType" id="rateType" required="required">
+                <option value="General" #if($been.rateType=="General") selected #end>一般计税</option>
+                <option value="Simple" #if($been.rateType=="Simple") selected #end>简易征税</option>
+            </select>
+        </div>
+        <div class="ancon_in_contract_3">
+            <span>发票类型：</span>
+        </div>
+        <div class="ancon_in_contract_4">
+            <select name="type" id="type" required="required">
+                <option value="Common" #if($been.type=="Common") selected #end>增税普票</option>
+                <option value="Special" #if($been.type=="Special") selected #end>增税专票</option>
+            </select>
+        </div>
+    </div>
+    <input type="hidden" placeholder="进项合同标识" name="inId"
+           value="#if($been.inId) $been.inId #else $!inContract.id  #end"/>
+
+    <input type="hidden" placeholder="甲方名称" name="partyAId"
+           value="#if($been.partyAId) $!been.partyAId #else $!inContract.companyId #end"/>
+
+    <input type="hidden" placeholder="乙方单位" name="partyBId"
+           value="#if($been.partyBId) $!been.partyBId #else $!inContract.partyBId #end "/>
+    #set($i=0)
+    #if($inContract.billMoney)
+    #set($i=$inContract.value - $inContract.billMoney)
+    #else
+    #set($i=$inContract.value)
+    #end
+    <input type="hidden" placeholder="可填金额" name="leftInvoice"
+           value="#if($been.money) #set($t=$been.totalMoney + $been.money) $t #else $i #end "/>
+
+    <div class="ancon_in_contract_content">
+        <div class="ancon_in_contract_1_remark_invoice">
+            <span>备注：</span>
+        </div>
+        <div class="ancon_invoice_remark">
+            <textarea name="remark" id="" rows="4" placeholder="必要的文字说明">$!been.remark</textarea>
+        </div>
+    </div>
+
+
+    <div class="hr_1"></div>
+    <div class="inContract_submit">
+        <button type="submit" class="btn blue-btn space_right addOrEdit_invoice"
+                data-url="ajax_addOrUpdate_invoice">保存
+        </button>
+        <button class="btn gray-btn left-space" id="cancelModal" type="button">取消</button>
+    </div>
+</form>
+<script>
+    require(['app/inContract/inContract_index'])
+</script>

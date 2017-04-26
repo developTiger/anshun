@@ -1,0 +1,47 @@
+
+<!--这是开票列表统计列表-->
+<table class="table table-striped table-bordered dataTable no-footer silverygray-table">
+
+    <thead>
+    <tr class="head">
+        <th class="column-title" style="width: 45px">序号</th>
+        <th class="column-title">所属合同名称</th>
+        <th class="column-title">所属合同编号</th>
+        <th class="column-title">发票金额（万元）</th>
+        <th class="column-title">发票类型</th>
+        <th class="column-title">乙方名称</th>
+        <th class="column-title">开票日期</th>
+        <th class="column-title">发票登记人</th>
+        <th class="column-title">备注</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <%var num = (pageNumber-1)*pageSize%>
+    <%if(items.length>0){%>
+    <%for(var i=0;i < items.length;i++){%>
+    <tr data-tt-id="<%=items[i].id%>">
+        <td class=""><%=num+i+1%></td>
+        <td class=""><%=items[i].inName%></td>
+        <td class=""><%=items[i].inNum%></td>
+        <td class=""><%=items[i].money%></td>
+        <td class=""><%=items[i].typeName%></td>
+        <td class=""><%=items[i].partyB%></td>
+        <td class=""><%=items[i].sinvoiceDate%></td>
+        <td class=""><%=items[i].optionName%></td>
+        <td class=""><%=items[i].remark%></td>
+
+    </tr>
+
+    <%}}else{%>
+    <tr>
+        <td colspan="10" style="text-align: center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+
+</table>

@@ -1,0 +1,87 @@
+<!--基本信息页面的进项合同的基本信息-->
+<input type="hidden" value="<%=id%>" name="inContractId">
+<div class="inContract_content">
+    <span class="left_font">基本信息</span>
+     <%if(canEdit==1){%>
+    <button id="edit_inContract" class="right_font i_modal "
+            data-url="_editOrUpdate_contract?id=<%=id%>" data-title="修改进项合同" value="edit" m_width="900px">
+        <em class="iconfont" style="font-size: 14px">&#xe600;</em>
+        编辑
+    </button>
+    <%}%>
+</div>
+
+<div style="padding: 20px;padding-bottom: 0px;">
+    <table class="inContract_table table table-striped table-bordered dataTable no-footer table2">
+        <tr>
+            <td class="todd">合同编号</td>
+            <td class="teven"><%=num%></td>
+            <td class="todd">合同名称</td>
+            <td class="teven"><%=name%></td>
+        </tr>
+        <tr>
+            <td class="todd">关联销售合同的名称</td>
+            <td class="teven"><%=salName%></td>
+            <td class="todd">合同金额（万元）</td>
+            <td class="teven"><%=value%></td>
+        </tr>
+        <tr>
+            <td class="todd">合同签订日期</td>
+            <td class="teven"><%=sbillDate%></td>
+            <td class="todd">合同到期日期</td>
+            <td class="teven"><%=sendDate%></td>
+        </tr>
+        <tr>
+            <td class="todd">剩余天数</td>
+            <%if(nextDays<0){%>
+            <td class="teven" style="color: #ff0000">已逾期</td>
+            <%}else if(nextDays <16){%>
+            <td class="teven" style="color: #ff0000"><%=nextDays%></td>
+            <%}else{%>
+            <td class="teven"><%=nextDays%></td>
+            <%}%>
+
+            <td class="todd">合同状态</td>
+            <%if(status=='Finish'){%>
+            <td class="teven" style="color: #ff0000">已完结</td>
+            <%}else{%>
+            <td class="teven">施工中</td>
+            <%}%>
+        </tr>
+        <tr>
+            <td class="todd">已开发票（万元）</td>
+            <td class="teven"><%=billMoney%></td>
+            <td class="todd">开票率</td>
+            <%if(iPercent){%>
+            <td class="teven"><%=iPercent%> %</td>
+            <%}else{%>
+            <td class="teven">0 %</td>
+            <%}%>
+
+        </tr>
+        <tr>
+            <td class="todd">已付款（万元）</td>
+            <td class="teven"><%=payMoney%></td>
+            <td class="todd">付款率</td>
+            <%if(pPercent){%>
+            <td class="teven"><%=pPercent%> %</td>
+            <%}else{%>
+            <td class="teven">0 %</td>
+            <%}%>
+        </tr>
+        <tr>
+            <td class="todd">所属分公司</td>
+            <td class="teven"><%=company%></td>
+            <td class="todd">乙方名称</td>
+            <td class="teven"><%=partyB%></td>
+
+        </tr>
+        <tr>
+            <td class="todd">登记人</td>
+            <td class="teven"><%=optionName%></td>
+            <td class="todd">备注</td>
+            <td class="teven"><%=remark%></td>
+
+        </tr>
+    </table>
+</div>

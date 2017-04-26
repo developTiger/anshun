@@ -1,0 +1,77 @@
+<div class="left_col scroll-view">
+
+    <div class="navbar nav_title" style="border: 0;">
+        <a href="/sra_index" class="site_title"><i class="fa fa-paw"></i></a>
+    </div>
+
+    <!-- menu prile quick info -->
+    <div class="profile">
+        <div class="profile_pic">
+            <img src="images/user.png" alt="..." class="img-circle profile_img">
+        </div>
+        <div class="profile_info">
+            <span>Welcome,</span>
+            <h2> $!userInfo.name</h2>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- /menu prile quick info -->
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        <div class="menu_section">
+            <ul class="nav side-menu">
+                #if($menu)
+                    #foreach($me in $menu)
+                    #if($me.resType<=1)
+                    <li class="ma"><a><i class="fa fa-home"></i>  $me.name <span class="fa fa-chevron-down"></span></a>
+                        <ul class='nav child_menu  #if($me.id==$parentMenu) active  #end'
+                            #if($me.id!=$parentMenu) style="display: none"    #end>
+                            #foreach($m in $me.child)
+                                #if($m.url==$currentUrl)
+                                <li class="pa active current-page "><a href="$m.url" #if($m.target) target="$m.target"   #end >$m.name</a>
+                                </li>
+                                #else
+                                <li class="pa"><a #if($m.target=="_blank")  data-url="$m.url" class="newWindows"   #else href="$m.url"  #end >$m.name</a>
+                                </li>
+                                #end
+                            #end
+                        </ul>
+                    </li>
+                    #end
+                #end
+                #end
+            </ul>
+        </div>
+        <div class="menu_section">
+            <h3>系统配置</h3>
+            <ul class="nav side-menu">
+
+                <li class="ma"><a><i class="fa fa-bug"></i> 权限管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none">
+                        <li><a href="sra_u_userCourty">用户管理</a>
+                        </li>
+                        <li><a href="sra_role">角色管理</a>
+                        </li>
+                        <li><a href="sra_group">权限组管理</a>
+                        </li>
+                        <li><a href="sra_menu">菜单管理</a>
+                        </li>
+                     11
+                    </ul>
+                </li>
+                <!--<li class="ma"><a><i class="fa fa-windows"></i> 参数管理 <span class="fa fa-chevron-down"></span></a>-->
+                    <!--<ul class="nav child_menu" style="display: none">-->
+                        <!--<li><a href="sra_ptype">参数类型管理</a>-->
+                        <!--</li>-->
+                        <!--<li><a href="sra_ptypemanage">参数管理</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+

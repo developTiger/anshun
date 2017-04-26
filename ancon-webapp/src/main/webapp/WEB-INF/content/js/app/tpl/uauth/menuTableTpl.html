@@ -1,0 +1,75 @@
+
+<style>
+    table.treetable thead{background: none !important;}
+    table.treetable thead tr th{border: 1px solid #ddd !important;}
+</style>
+
+<table id="treetable" class="treetable table table-striped table-bordered dataTable no-footer">
+    <thead>
+    <tr class="headings">
+        <th class="column-title">菜单名称</th>
+        <th class="column-title">菜单Url</th>
+        <th class="column-title">链接方式</th>
+        <th class="column-title">排序</th>
+        <th class="column-title">类型</th>
+        <th class="column-title">icon图标</th>
+        <th class="column-title no-link last"><span class="nobr">操作</span>
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <%var num =1%>
+    <%if(isSuccess){%>
+    <%for(var i = 0 ; i < items.length; i++) {%>
+
+    <tr data-tt-id="<%=items[i].id%>" data-tt-parent-id="<%=items[i].parentId%>">
+
+        <td style="text-align: left;">
+            <input type="checkbox" class="Js_relCheck checkBtn" value="<%=items[i].id%>">
+            <span class="folder ui-draggable"><%=items[i].name%></span>
+
+            <%if(!items[i].parentId){%>
+            <a class="i_modal" data-title="新增子菜单" data-url="_addMenuForm?parentId=<%=items[i].id%>">
+                <i class="fa fa-plus green"></i>
+            </a>
+            <%}%>
+
+        </td>
+        <td><%=items[i].url%></td>
+        <td>
+            <%if(items[i].target =='_self'){%>
+            当前窗口
+            <%}else if(items[i].target=='_blank'){%>
+            新窗口
+            <%}%>
+        </td>
+        <td class=" "><%=items[i].sort%></td>
+        <td>
+
+            <%if(!items[i].resource_operate){%>
+            菜单
+            <%}else if(items[i].resource_operate=='menu'){%>
+            菜单
+            <%}else if(items[i].resource_operate=='readOnly'){%>
+            读操作
+            <%}else if(items[i].resource_operate=='edit'){%>
+            编辑操作
+            <%}%>
+
+        </td>
+        <td class=" "><i class="fa <%=items[i].iconName%>"></i></td>
+        <td class=" last"><a class="i_modal " data-title="修改菜单"
+                             data-url="_addMenuForm?id=<%=items[i].id%>"> <i class="green fa fa-edit"></i>修改 </a>
+            <a class="js_delete" data-url="ajax_deleteMenu?ids=<%=items[i].id%>"> <i class="red fa fa-remove"></i>删除 </a>
+        </td>
+    </tr>
+
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="8" align="center">暂无数据</td>
+    </tr>
+    <%}%>
+    </tbody>
+</table>
